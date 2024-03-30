@@ -2,7 +2,7 @@ const animate = require("tailwindcss-animate")
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
+  darkMode: 'selector',
   
   prefix: "",
 
@@ -11,8 +11,9 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "10px",
       screens: {
+        "xl": "1000px",
         "2xl": "1400px",
       },
     },

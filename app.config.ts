@@ -5,6 +5,10 @@ export default defineAppConfig({
     useAvatar: true, // if true, icon will not be used.
   },
   layout: {
+    centeredWidth: '800px',
     isCentered: true,
   },
+  theme: {
+    useDark: true,
+  }
 });

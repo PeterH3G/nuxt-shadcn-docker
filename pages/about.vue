@@ -10,14 +10,16 @@ definePageMeta({
 const card = {
   showDescription: true,
   showFooter: false,
-}
+};
 </script>
 
 <template>
-  <Card class="m-0 mx-auto" :class="cn(`w-[800px]`, $attrs.class ?? '')">
+  <Card :class="cn('container mx-auto')">
     <CardHeader>
       <CardTitle>{{ $route.meta.title }}</CardTitle>
-      <CardDescription v-if="card.showDescription">Description here</CardDescription>
+      <CardDescription v-if="card.showDescription"
+        >Description here</CardDescription
+      >
     </CardHeader>
 
     <CardContent>

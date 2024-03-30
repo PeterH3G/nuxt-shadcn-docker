@@ -1,5 +1,17 @@
 <script setup lang="ts">
 const brand = useAppConfig().brand;
+const useDark = useAppConfig().theme.useDark;
+
+useHead({
+  title: brand.title,
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${brand.title} | route.name` : `route.name`;
+  },
+  meta: [{ name: "description", content: `${brand.title} ${brand.subtitle}` }],
+  bodyAttrs: {
+    class: useDark ? "dark" : "light",
+  },
+});
 </script>
 
 <template>
@@ -9,8 +21,6 @@ const brand = useAppConfig().brand;
 </template>
 
 <style>
-$transition: all 0.4s;
-
 html,
 body,
 #__nuxt {
@@ -20,7 +30,7 @@ body,
 
 .layout-enter-active,
 .layout-leave-active {
-  transition: $transition;
+  transition: all 0.4s;
 }
 
 .layout-enter-from,
@@ -30,7 +40,7 @@ body,
 
 .page-enter-active,
 .page-leave-active {
-  transition: $transition;
+  transition: all 0.4s;
 }
 
 .page-enter-from,
