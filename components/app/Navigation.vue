@@ -12,8 +12,10 @@ const routes = [...useRouter().options.routes]
     <NavigationMenuList>
       <NavigationMenuItem v-for="(item, i) in routes" :key="i">
         <NuxtLink :to="item.path" class="link">
+          <Button variant="ghost">
             <Icon :icon="`${item.meta?.icon}`" />
             {{ item.meta?.title }}
+          </Button>
         </NuxtLink>
       </NavigationMenuItem>
     </NavigationMenuList>
@@ -21,11 +23,11 @@ const routes = [...useRouter().options.routes]
 </template>
 
 <style scoped>
-a.link {
-  @apply  p-2 flex flex-col justify-center items-center hover:bg-accent;
+a.link > button {
+  @apply bg-card hover:bg-accent;
 }
 
-a.router-link-active {
+a.link.router-link-active > button {
   @apply bg-accent;
 }
 </style>

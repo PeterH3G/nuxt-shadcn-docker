@@ -44,31 +44,37 @@ const disclaimer = "&reg; All rights reserved";
 
 <template>
   <footer>
-    <div class="content">
+    <div class="container">
       <div class="foot left">
-        <strong class="label" v-text="footLeft.label" />
-        <ul class="items">
-          <li v-for="(item, i) in footLeft.items" :key="i">
-            <Button :to="item.href" target="_blank" :variant="`ghost`">
-              <Icon :icon="item.icon" />
-              <span v-text="item.title" />
-            </Button>
-          </li>
-        </ul>
+        <div class="content">
+          <strong class="label" v-text="footLeft.label" />
+          <ul class="items">
+            <li v-for="(item, i) in footLeft.items" :key="i">
+              <Button :to="item.href" target="_blank" :variant="`ghost`">
+                <Icon :icon="item.icon" />
+                <span v-text="item.title" />
+              </Button>
+            </li>
+          </ul>
+        </div>
       </div>
-
-      <AppBrand class="foot center" />
-
+      <div class="foot center">
+        <div class="content">
+          <AppBrand />
+        </div>
+      </div>
       <div class="foot right">
-        <strong class="label" v-text="footRight.label" />
-        <ul class="items">
-          <li v-for="(item, i) in footRight.items" :key="i">
-            <Button :href="item.href" target="_blank" :variant="`ghost`">
-              <Icon :icon="item.icon" />
-              <span v-text="item.title" />
-            </Button>
-          </li>
-        </ul>
+        <div class="content">
+          <strong class="label" v-text="footRight.label" />
+          <ul class="items">
+            <li v-for="(item, i) in footRight.items" :key="i">
+              <Button :href="item.href" target="_blank" :variant="`ghost`">
+                <Icon :icon="item.icon" />
+                <span v-text="item.title" />
+              </Button>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div class="foot disclaimer" v-html="disclaimer" />
@@ -81,40 +87,50 @@ footer {
   @apply flex justify-center items-center py-2;
 }
 
-.content {
+.container {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2;
+  grid-gap: 10px;
   grid-template-areas: "left center right" "disclaimer disclaimer disclaimer";
   width: 100%;
 }
 
-strong.label {
-  text-transform: uppercase;
-}
-
-ul.items {
-  @apply flex flex-wrap justify-center items-center;
-}
-
-.foot {
-  display: flex;
-  flex-direction: column;
-  @apply text-center items-center justify-start;
-}
 .foot.left {
   grid-area: left;
 }
+
 .foot.center {
   grid-area: center;
 }
+
 .foot.right {
   grid-area: right;
 }
+
+.foot {
+  @apply items-center justify-center;
+}
+
+.foot .content {
+  @apply flex flex-col items-center;
+  @apply bg-card rounded-md py-4 h-full;
+}
+
+.foot strong.label {
+  @apply text-center uppercase;
+}
+
+.foot ul.items {
+  @apply flex flex-wrap justify-center items-center;
+}
+
+.foot.center .content {
+  @apply justify-center;
+}
+
 .foot.disclaimer {
   grid-area: disclaimer;
-  font-size: small;
-
-  @apply pt-2 text-center;
+  @apply text-center text-sm;
 }
 </style>
