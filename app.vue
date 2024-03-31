@@ -1,7 +1,8 @@
 <script setup lang="ts">
 const brand = useAppConfig().brand;
-const useDark = useAppConfig().theme.useDark;
+const useDarkTheme = useAppConfig().useDarkTheme;
 
+const centeredWidthMax = useAppConfig().layout.centeredWidthMax;
 useHead({
   title: brand.title,
   titleTemplate: (titleChunk) => {
@@ -9,7 +10,7 @@ useHead({
   },
   meta: [{ name: "description", content: `${brand.title} ${brand.subtitle}` }],
   bodyAttrs: {
-    class: useDark ? "dark-theme" : "light-theme",
+    class: useDarkTheme ? "dark" : "light",
   },
 });
 </script>
@@ -21,6 +22,7 @@ useHead({
 </template>
 
 <style>
+/** FULL DIMENSION */
 html,
 body,
 #__nuxt {
@@ -28,6 +30,7 @@ body,
   height: 100%;
 }
 
+/** LAYOUT TRANSITIONS */
 .layout-enter-active,
 .layout-leave-active {
   transition: all 0.4s;
@@ -38,6 +41,7 @@ body,
   filter: grayscale(1);
 }
 
+/** PAGE TRANSITIONS */
 .page-enter-active,
 .page-leave-active {
   transition: all 0.4s;
@@ -47,5 +51,14 @@ body,
 .page-leave-to {
   opacity: 0;
   filter: blur(1rem);
+}
+
+/** CENTERED CONTENT */
+.layout header > :nth-child(1),
+.layout main > :nth-child(1),
+.layout footer > :nth-child(1) {
+  width: 100%;
+  max-width: v-bind(centeredWidthMax);
+  @apply mx-auto;
 }
 </style>

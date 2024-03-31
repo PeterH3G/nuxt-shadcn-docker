@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { cn } from "@/lib/utils";
-
 definePageMeta({
   title: "Home",
   description: "Hello Universe!",
@@ -15,16 +13,17 @@ const card = {
 </script>
 
 <template>
-  <Card :class="cn('mx-auto px-4')">
-    <CardHeader>
+  <Card class="px-0">
+    <CardHeader class="p-2">
       <CardTitle>{{ $route.meta.title }}</CardTitle>
       <CardDescription v-if="card.showDescription">{{
         $route.meta.description
       }}</CardDescription>
     </CardHeader>
 
-    <CardContent>
+    <CardContent class="p-2">
       <slot />
+      test
     </CardContent>
 
     <CardFooter v-if="card.showFooter"> Card footer </CardFooter>

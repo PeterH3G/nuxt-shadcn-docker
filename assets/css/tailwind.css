@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer components {
+  .centered {
+    width: 100%;
+    @apply mx-auto;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
