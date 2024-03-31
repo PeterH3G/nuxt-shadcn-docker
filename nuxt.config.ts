@@ -14,18 +14,19 @@ export default defineNuxtConfig({
       link: [],
       style: [],
       script: [],
-      noscript: [
-        // <noscript>JavaScript is required</noscript>
-        { children: "JavaScript is required" },
-      ],
+      noscript: [{ children: "JavaScript is required" }],
     },
     layoutTransition: { name: "layout", mode: "out-in" },
     pageTransition: { name: "page", mode: "out-in" },
   },
 
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 
-  modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt"],
+  modules: ["@nuxtjs/color-mode", "@nuxtjs/tailwindcss", "shadcn-nuxt"],
+
+  colorMode: {
+    classSuffix: ''
+  },
 
   postcss: {
     plugins: {
@@ -34,14 +35,7 @@ export default defineNuxtConfig({
   },
 
   shadcn: {
-    /**
-     * Prefix for all the imported component
-     */
-    prefix: "",
-    /**
-     * Directory that the component lives in.
-     * @default "./components/ui"
-     */
-    componentDir: "./components/ui",
+    prefix: "", // Prefix for all the imported component
+    componentDir: "./components/ui", // @default "./components/ui"
   },
 });

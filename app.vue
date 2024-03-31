@@ -9,7 +9,7 @@ useHead({
   },
   meta: [{ name: "description", content: `${brand.title} ${brand.subtitle}` }],
   bodyAttrs: {
-    class: useDark ? "dark" : "light",
+    class: useDark ? "dark-theme" : "light-theme",
   },
 });
 </script>

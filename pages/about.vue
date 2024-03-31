@@ -3,7 +3,8 @@ import { cn } from "@/lib/utils";
 
 definePageMeta({
   title: "About",
-  icon: "$about",
+  description: "About PeterH3G",
+  icon: "comment-person",
   order: 1,
 });
 
@@ -17,9 +18,9 @@ const card = {
   <Card :class="cn('container mx-auto')">
     <CardHeader>
       <CardTitle>{{ $route.meta.title }}</CardTitle>
-      <CardDescription v-if="card.showDescription"
-        >Description here</CardDescription
-      >
+      <CardDescription v-if="card.showDescription">{{
+        $route.meta.description
+      }}</CardDescription>
     </CardHeader>
 
     <CardContent>
