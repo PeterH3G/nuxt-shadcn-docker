@@ -27,6 +27,6 @@ img.logo {
   font-size: 1rem;
 }
 .subtitle {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 </style>

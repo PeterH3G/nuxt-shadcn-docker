@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 definePageMeta({
   title: "About",
   description: "About PeterH3G",
-  icon: "comment-person",
+  icon: "mdi:comment-person",
   order: 1,
 });
 

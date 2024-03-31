@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 
-const colorMode = useColorMode();
-
 const button = <any>{
   icon: "mdi:account",
   variant: "outline",
+  text: "Toggle theme",
 };
 
 const dropdownLabel = <any>{
@@ -15,11 +14,13 @@ const dropdownLabel = <any>{
   text: "User Options",
 };
 
-const dropdownItems = [
+const dropdownItems = <any>[
   { text: "Light", preference: "light", icon: dropdownLabel.iconLight },
   { text: "Dark", preference: "dark", icon: dropdownLabel.iconDark },
   { text: "System", preference: "system", icon: "mdi:computer-classic" },
 ];
+
+const colorMode = useColorMode();
 </script>
 
 <template>
@@ -35,7 +36,7 @@ const dropdownItems = [
             :icon="dropdownLabel.iconLight"
             class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
           />
-          <span class="sr-only">Toggle theme</span>
+          <span class="sr-only">{{ button.text }}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">

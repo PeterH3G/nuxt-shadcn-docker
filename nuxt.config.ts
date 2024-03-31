@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -20,7 +21,11 @@ export default defineNuxtConfig({
     pageTransition: { name: "page", mode: "out-in" },
   },
 
-  devtools: { enabled: false },
+  devtools: { enabled: true },
+
+  experimental: {
+    componentIslands: true,
+  },
 
   modules: ["@nuxtjs/color-mode", "@nuxtjs/tailwindcss", "shadcn-nuxt"],
 

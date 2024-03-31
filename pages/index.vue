@@ -2,7 +2,7 @@
 definePageMeta({
   title: "Home",
   description: "Hello Universe!",
-  icon: "home",
+  icon: "mdi:home",
   order: 0,
 });
 
@@ -13,15 +13,15 @@ const card = {
 </script>
 
 <template>
-  <Card class="px-0">
-    <CardHeader class="p-2">
+  <Card>
+    <CardHeader>
       <CardTitle>{{ $route.meta.title }}</CardTitle>
       <CardDescription v-if="card.showDescription">{{
         $route.meta.description
       }}</CardDescription>
     </CardHeader>
 
-    <CardContent class="p-2">
+    <CardContent>
       <slot />
       test
     </CardContent>

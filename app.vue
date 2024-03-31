@@ -9,9 +9,6 @@ useHead({
     return titleChunk ? `${brand.title} | route.name` : `route.name`;
   },
   meta: [{ name: "description", content: `${brand.title} ${brand.subtitle}` }],
-  bodyAttrs: {
-    class: useDarkTheme ? "dark" : "light",
-  },
 });
 </script>
 
@@ -28,6 +25,25 @@ body,
 #__nuxt {
   width: 100%;
   height: 100%;
+}
+
+html.dark .layout {
+  background: radial-gradient(
+    rgba(255, 255, 255, .75),
+    rgba(255, 255, 255, 0)
+  );
+}
+html.light .layout {
+  background: radial-gradient(
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+body {
+  background-image: url("/assets/img/logo_196.png");
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 /** LAYOUT TRANSITIONS */
