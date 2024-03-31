@@ -87,7 +87,7 @@ footer {
   @apply flex justify-center items-center py-2;
 }
 
-.container {
+div.container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2;
@@ -96,41 +96,41 @@ footer {
   width: 100%;
 }
 
-.foot.left {
+div.foot.left {
   grid-area: left;
 }
 
-.foot.center {
+div.foot.center {
   grid-area: center;
 }
 
-.foot.right {
+div.foot.right {
   grid-area: right;
 }
 
-.foot {
+div.foot {
   @apply items-center justify-center;
 }
 
-.foot .content {
+div.foot .content {
   @apply flex flex-col items-center;
   @apply bg-card rounded-md py-4 h-full;
 }
 
-.foot strong.label {
+div.foot strong.label {
   @apply text-center uppercase;
 }
 
-.foot ul.items {
+div.foot ul.items {
   @apply flex flex-wrap justify-center items-center;
 }
 
-.foot.center .content {
+div.foot.center .content {
   @apply justify-center;
 }
 
-.foot.disclaimer {
+div.foot.disclaimer {
   grid-area: disclaimer;
-  @apply text-center text-sm;
+  @apply text-center text-xs;
 }
 </style>
