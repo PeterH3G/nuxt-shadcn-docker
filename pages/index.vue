@@ -6,26 +6,14 @@ definePageMeta({
   order: 0,
 });
 
-const card = {
-  showDescription: true,
-  showFooter: false,
-};
+const { data, error, pending } = await useFetch("/api/pages", {
+  pick: ["home"],
+  server: false,
+});
 </script>
 
 <template>
-  <Card>
-    <CardHeader>
-      <CardTitle>{{ $route.meta.title }}</CardTitle>
-      <CardDescription v-if="card.showDescription">{{
-        $route.meta.description
-      }}</CardDescription>
-    </CardHeader>
-
-    <CardContent>
-      <slot />
-      test
-    </CardContent>
-
-    <CardFooter v-if="card.showFooter"> Card footer </CardFooter>
-  </Card>
+  <div class="container">
+    <PageHero :data="data"> index </PageHero>
+  </div>
 </template>

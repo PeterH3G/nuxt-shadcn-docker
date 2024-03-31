@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 
+const iconOnly = ref(true);
+
 const footLeft = {
   label: "Powered By",
   items: [
@@ -52,7 +54,7 @@ const disclaimer = "&reg; All rights reserved";
             <li v-for="(item, i) in footLeft.items" :key="i">
               <Button :to="item.href" target="_blank" :variant="`ghost`">
                 <Icon :icon="item.icon" />
-                <span v-text="item.title" />
+                <span v-if="!iconOnly" v-text="item.title" />
               </Button>
             </li>
           </ul>
@@ -70,7 +72,7 @@ const disclaimer = "&reg; All rights reserved";
             <li v-for="(item, i) in footRight.items" :key="i">
               <Button :href="item.href" target="_blank" :variant="`ghost`">
                 <Icon :icon="item.icon" />
-                <span v-text="item.title" />
+                <span v-if="!iconOnly" v-text="item.title" />
               </Button>
             </li>
           </ul>
@@ -91,9 +93,8 @@ div.container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2;
-  grid-gap: 10px;
   grid-template-areas: "left center right" "disclaimer disclaimer disclaimer";
-  width: 100%;
+  grid-gap: 10px;
 }
 
 div.foot.left {

@@ -1,11 +1,12 @@
 <script setup lang="ts">
+const avatar_url = useAppConfig().avatar_url;
 const brandTitle = useAppConfig().brand.title;
 const brandSubtitle = useAppConfig().brand.subtitle;
 </script>
 
 <template>
   <NuxtLink class="brand-link" href="/">
-    <img class="logo" src="/avatar.png" />
+    <img class="logo" :src="avatar_url" />
     <div class="titles">
       <strong class="title" v-text="brandTitle" />
       <span class="subtitle" v-text="brandSubtitle" />

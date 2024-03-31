@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { cn } from "@/lib/utils";
-
 definePageMeta({
   title: "About",
   description: "About PeterH3G",
@@ -8,25 +6,14 @@ definePageMeta({
   order: 1,
 });
 
-const card = {
-  showDescription: true,
-  showFooter: false,
-};
+const { data, error, pending } = await useFetch("/api/pages", {
+  pick: ["about"],
+  server: false,
+});
 </script>
 
 <template>
-  <Card :class="cn('container mx-auto')">
-    <CardHeader>
-      <CardTitle>{{ $route.meta.title }}</CardTitle>
-      <CardDescription v-if="card.showDescription">{{
-        $route.meta.description
-      }}</CardDescription>
-    </CardHeader>
-
-    <CardContent>
-      <slot />
-    </CardContent>
-
-    <CardFooter v-if="card.showFooter"> Card footer </CardFooter>
-  </Card>
+  <div class="container">
+    <PageHero :data="data"> about </PageHero>
+  </div>
 </template>

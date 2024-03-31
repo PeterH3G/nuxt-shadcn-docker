@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
-import { Button } from "@/components/ui/button";
 
 const showLabel = ref(false);
 const label = "Login";

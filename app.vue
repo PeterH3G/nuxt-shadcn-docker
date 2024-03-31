@@ -1,14 +1,21 @@
 <script setup lang="ts">
+const avatar_url = useAppConfig().avatar_url;
 const brand = useAppConfig().brand;
-const useDarkTheme = useAppConfig().useDarkTheme;
+const layoutIsCentered = useAppConfig().layout.isCentered;
+const layoutMaxWidth = layoutIsCentered
+  ? useAppConfig().layout.maxWidth
+  : "100%";
 
-const centeredWidthMax = useAppConfig().layout.centeredWidthMax;
 useHead({
   title: brand.title,
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${brand.title} | route.name` : `route.name`;
   },
   meta: [{ name: "description", content: `${brand.title} ${brand.subtitle}` }],
+  bodyAttrs: {
+    class: "app",
+    style: `background-image: url(${avatar_url})`,
+  },
 });
 </script>
 
@@ -29,19 +36,16 @@ body,
 
 html.dark .layout {
   background: radial-gradient(
-    rgba(255, 255, 255, .75),
-    rgba(255, 255, 255, 0)
-  );
-}
-html.light .layout {
-  background: radial-gradient(
-    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0.75),
     rgba(255, 255, 255, 0)
   );
 }
 
+html.light .layout {
+  background: radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
 body {
-  background-image: url("/assets/img/logo_196.png");
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -74,7 +78,7 @@ body {
 .layout main > :nth-child(1),
 .layout footer > :nth-child(1) {
   width: 100%;
-  max-width: v-bind(centeredWidthMax);
+  max-width: v-bind(layoutMaxWidth);
   @apply mx-auto;
 }
 </style>

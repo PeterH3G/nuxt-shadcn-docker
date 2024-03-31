@@ -1,13 +1,13 @@
 export default defineAppConfig({
+  avatar_url: "https://avatars.githubusercontent.com/u/500234?v=4",
+
   brand: {
     title: "PeterH3G",
     subtitle: "My Pages",
-    useAvatar: true, // if true, icon will not be used.
   },
+
   layout: {
-    centeredWidthMax: '800px',
     isCentered: true,
+    maxWidth: "800px",
   },
-  showUserOptions: false,
-  useDarkTheme: true,
 });
