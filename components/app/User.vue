@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
+import { storeToRefs } from "pinia";
+
+const { user } = storeToRefs(useAuthStore());
 
 const button = <any>{
-  icon: "mdi:account",
+  icon: user.value.icon,
+  text: user.value.name,
   variant: "outline",
 };
 
-const dropdownLabel = <any>{
+const dropdownLabel = {
   class: "flex items-center",
   icon: "mdi:slider",
   show: true,
@@ -25,6 +29,7 @@ const dropdownItems = [
       <DropdownMenuTrigger as-child>
         <Button :variant="button.variant">
           <Icon :icon="button.icon" />
+          <strong v-text="button.text" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">

@@ -10,4 +10,9 @@ export default defineAppConfig({
     isCentered: true,
     maxWidth: "800px",
   },
+
+  user: {
+    authTitle: "User",
+    guestTitle: "Guest"
+  }
 });

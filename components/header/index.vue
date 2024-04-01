@@ -1,5 +1,8 @@
 <script setup lang="ts">
-const isAuth = ref(false);
+import { storeToRefs } from "pinia";
+
+const { isAuth } = storeToRefs(useAuthStore());
+const showLabel = ref(true);
 </script>
 
 <template>

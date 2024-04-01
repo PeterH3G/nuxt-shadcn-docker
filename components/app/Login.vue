@@ -1,30 +1,48 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
+import { storeToRefs } from "pinia";
 
-const showLabel = ref(false);
-const label = "Login";
+const { guest } = storeToRefs(useAuthStore());
+
+const button = <any>{
+  icon: guest.value.icon,
+  text: guest.value.name,
+  variant: "outline",
+};
+
+const dialog = {
+  icon: guest.value.icon,
+  description: "You can login here",
+  title: guest.value.name + ` Login`,
+  loginButtontext: "Log me in!",
+};
 </script>
 
 <template>
   <client-only>
     <Dialog>
       <DialogTrigger>
-        <Button variant="outline">
-          <Icon icon="mdi:login" />
-          {{ showLabel ? label : null }}
+        <Button :variant="button.variant">
+          <Icon :icon="button.icon" />
+          <strong v-text="button.text" />
         </Button>
       </DialogTrigger>
 
       <DialogContent class="dark:border-card dark:bg-card">
         <DialogHeader>
-          <DialogTitle>
-            <Icon icon="mdi:login" />
-            User Login
+          <DialogTitle class="flex justify-start items-center">
+            <Icon :icon="dialog.icon" />
+            <span v-text="dialog.title" />
           </DialogTitle>
-          <DialogDescription> User can login here. </DialogDescription>
+          <DialogDescription>{{ dialog.description }} </DialogDescription>
         </DialogHeader>
 
-        <DialogFooter> Save changes </DialogFooter>
+        <DialogFooter>
+          <Button variant="ghost">
+            <Icon :icon="button.icon" />
+            {{ dialog.loginButtontext }}
+          </Button>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   </client-only>

@@ -75,7 +75,6 @@ body {
 
 /** CENTERED CONTENT */
 .layout header > :nth-child(1),
-.layout main > :nth-child(1),
 .layout footer > :nth-child(1) {
   width: 100%;
   max-width: v-bind(layoutMaxWidth);
