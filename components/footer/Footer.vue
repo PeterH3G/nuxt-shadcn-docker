@@ -62,7 +62,7 @@ const disclaimer = "&reg; All rights reserved";
       </div>
       <div class="foot center">
         <div class="content">
-          <AppBrand />
+          <FooterLogo />
         </div>
       </div>
       <div class="foot right">

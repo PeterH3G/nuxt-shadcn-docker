@@ -35,10 +35,8 @@ body,
 }
 
 html.dark .layout {
-  background: radial-gradient(
-    rgba(255, 255, 255, 0.75),
-    rgba(255, 255, 255, 0)
-  );
+  background: radial-gradient(rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0));
 }
 
 html.light .layout {
@@ -74,8 +72,8 @@ body {
 }
 
 /** CENTERED CONTENT */
-.layout header > :nth-child(1),
-.layout footer > :nth-child(1) {
+.layout header> :nth-child(1),
+.layout footer> :nth-child(1) {
   width: 100%;
   max-width: v-bind(layoutMaxWidth);
   @apply mx-auto;
