@@ -16,12 +16,12 @@ bun run build
 bun run preview
 ```
 
-### Documentation
+### Setup Documentation
 
-- [Bun: Develop, test, run, and bundle JavaScript & TypeScript projects](https://bun.sh)
-- [Nuxt 3: The Intuitive Vue Framework](https://nuxt.com)
-- [Nuxt 3 deployment documentation](https://nuxt.com/docs/getting-started/deployment)
-- [TailwindCSS: Rapidly build modern websites](https://tailwindcss.com/)
-- [Shadcn/vue: Shadcn component library for Vue](https://www.shadcn-vue.com/)
-- [Radix Vue: Vue Port of Radix UI](https://www.radix-vue.com/)
-- [Iconify: The easiest way to use icons in your projects](https://iconify.design/)
+- <a href="https://bun.sh" target="_blank">Bun: Develop, test, run, and bundle JavaScript & TypeScript projects</a>
+- <a href="https://nuxt.com" target="_blank">Nuxt 3: The Intuitive Vue Framework</a>
+- <a href="https://nuxt.com/docs/getting-started/deployment" target="_blank">Nuxt 3 deployment documentation</a>
+- <a href="https://tailwindcss.com/" target="_blank">TailwindCSS: Rapidly build modern websites</a>
+- <a href="https://shadcn-vue.com" target="_blank">Shadcn/vue: Shadcn component library for Vue</a>
+- <a href="https://www.radix-vue.com/" target="_blank">Radix Vue: Vue Port of Radix UI</a>
+- <a href="https://iconify.design/" target="_blank">Iconify: The easiest way to use icons in your projects</a>
