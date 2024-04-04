@@ -31,6 +31,7 @@ bun run docker-build
 <a href="https://nuxt.com/docs/getting-started/deployment" target="_blank"><b>Nuxt 3</b> deployment documentation</a>
 
 <a href="https://tailwindcss.com/" target="_blank"><b>TailwindCSS</b>: Rapidly build modern websites</a>
+
 <a href="https://shadcn-vue.com" target="_blank"><b>Shadcn/vue</b>: Shadcn component library for Vue</a>
 
 <a href="https://www.radix-vue.com/" target="_blank"><b>Radix Vue</b>: Vue Port of Radix UI</a>
