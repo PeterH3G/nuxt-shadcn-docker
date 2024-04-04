@@ -21,7 +21,7 @@ bun run preview
 - [Bun: Develop, test, run, and bundle JavaScript & TypeScript projects](https://bun.sh)
 - [Nuxt 3: The Intuitive Vue Framework](https://nuxt.com)
 - [Nuxt 3 deployment documentation](https://nuxt.com/docs/getting-started/deployment)
-- [TailwindCSS: Rapidly build modern websites without ever leaving your HTML](https://tailwindcss.com/)
+- [TailwindCSS: Rapidly build modern websites](https://tailwindcss.com/)
 - [Shadcn/vue: Shadcn component library for Vue](https://www.shadcn-vue.com/)
 - [Radix Vue: Vue Port of Radix UI](https://www.radix-vue.com/)
 - [Iconify: The easiest way to use icons in your projects](https://iconify.design/)
