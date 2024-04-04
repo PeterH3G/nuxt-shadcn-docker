@@ -5,6 +5,7 @@
 ## Install the dependencies
 
 ```bash
+# Install the dependencies
 bun install
 ```
 
