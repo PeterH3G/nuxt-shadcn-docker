@@ -1,11 +1,8 @@
 # PeterH3G shadcn - with [Bun.sh](https://bun.sh)
 
-<br><br>
-
 ## Install the dependencies
 
 ```bash
-# Install the dependencies
 bun install
 ```
 
