@@ -24,10 +24,10 @@ bun run docker-build
 
 ### Setup Documentation
 
-- [Bun: Develop, test, run, and bundle JavaScript & TypeScript projects](https://bun.sh){:target="_blank"}
-- [Nuxt 3: The Intuitive Vue Framework](https://nuxt.com){:target="_blank"}
-- [Nuxt 3 deployment documentation](https://nuxt.com/docs/getting-started/deployment){:target="_blank"}
-- [TailwindCSS: Rapidly build modern websites](https://tailwindcss.com/){:target="_blank"}
-- [Shadcn/vue: Shadcn component library for Vue](https://shadcn-vue.com){:target="_blank"}
-- [Radix Vue: Vue Port of Radix UI](https://www.radix-vue.com/){:target="\_blank"}
-- [Iconify: The easiest way to use icons in your projects](https://iconify.design/){:target="_blank"}
+- <a href="https://bun.sh" target="_blank"><b>Bun</b>: Develop, test, run, and bundle JavaScript & TypeScript projects</a>
+- <a href="https://nuxt.com" target="_blank"><b>Nuxt 3</b>: The Intuitive Vue Framework</a>
+- <a href="https://nuxt.com/docs/getting-started/deployment" target="_blank"><b>Nuxt 3</b> deployment documentation</a>
+- <a href="https://tailwindcss.com/" target="_blank"><b>TailwindCSS</b>: Rapidly build modern websites</a>
+- <a href="https://shadcn-vue.com" target="_blank"><b>Shadcn/vue</b>: Shadcn component library for Vue</a>
+- <a href="https://www.radix-vue.com/" target="_blank"><b>Radix Vue</b>: Vue Port of Radix UI</a>
+- <a href="https://iconify.design/" target="_blank"><b>Iconify</b>: The easiest way to use icons in your projects</a>
