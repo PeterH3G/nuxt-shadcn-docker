@@ -24,7 +24,7 @@ bun run docker-build
 
 ### Setup Documentation
 
-- [<b>Bun</b>: Develop, test, run, and bundle JavaScript & TypeScript projects](https://bun.sh target="_blank"}
+- [<b>Bun</b>: Develop, test, run, and bundle JavaScript & TypeScript projects](https://bun.sh){:target="_blank"}
 - <a href="https://nuxt.com" target="_blank"><b>Nuxt 3</b>: The Intuitive Vue Framework</a>
 - <a href="https://nuxt.com/docs/getting-started/deployment" target="_blank"><b>Nuxt 3</b> deployment documentation</a>
 - <a href="https://tailwindcss.com/" target="_blank"><b>TailwindCSS</b>: Rapidly build modern websites</a>
