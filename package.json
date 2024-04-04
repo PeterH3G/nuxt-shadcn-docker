@@ -5,8 +5,8 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "docker": "docker-compose -f ./docker-compose.yml up -d",
-    "docker-build": "docker-compose -f ./docker-compose.yml up -d --build",
+    "docker": "docker-compose -f ./docker-compose.yml up",
+    "docker-build": "docker-compose -f ./docker-compose.yml up--build",
     "generate": "nuxt generate",
     "push": "./scripts/gitpush.sh",
     "preview": "nuxt preview",
