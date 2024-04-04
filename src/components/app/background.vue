@@ -20,13 +20,13 @@ body.bg-avatar {
 /* Animation definition */
 @keyframes color-transition {
   0% {
-    background-color: rgba(255, 0, 0, 0.75); /* Red with opacity */
+    background-color: rgba(255, 0, 0, 0.5); /* Red with opacity */
   }
   50% {
-    background-color: rgba(0, 255, 0, 0.75); /* Green with opacity */
+    background-color: rgba(0, 255, 0, 0.5); /* Green with opacity */
   }
   100% {
-    background-color: rgba(0, 0, 255, 0.75); /* Blue with opacity */
+    background-color: rgba(0, 0, 255, 0.5); /* Blue with opacity */
   }
 }
 
