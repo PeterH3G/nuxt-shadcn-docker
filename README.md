@@ -36,7 +36,7 @@ bun run preview
 bun run docker
 ```
 
-Docker Application Server: [localhost:8080](http://localhost:8080)
+Docker Server: [localhost:8080](http://localhost:8080)
 
 ### Build Docker Application
 

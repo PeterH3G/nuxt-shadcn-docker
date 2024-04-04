@@ -6,7 +6,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "docker": "docker-compose -f ./docker-compose.yml up",
-    "docker-build": "docker-compose -f ./docker-compose.yml up--build",
+    "docker-build": "docker-compose -f ./docker-compose.yml up --build",
     "generate": "nuxt generate",
     "push": "./scripts/gitpush.sh",
     "preview": "nuxt preview",
