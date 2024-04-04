@@ -14,6 +14,12 @@ bun run build
 
 # Locally preview production build:
 bun run preview
+
+# Docker Application Server: http://localhost:8080
+bun run docker
+
+# Build Docker Application:
+bun run docker-build
 ```
 
 ### Setup Documentation
