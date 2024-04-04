@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 
-const props = defineProps<{
+defineProps<{
   data?: any;
 }>();
 
@@ -28,7 +28,7 @@ const api = {
           <span v-text="api.label + ` ${$route.meta.title} Page`" />
         </DialogTitle>
         <DialogDescription>
-          <pre v-text="props.data ? props.data : `no data`" />
+          <pre v-text="data ? data : `no data`" />
         </DialogDescription>
       </DialogHeader>
       <DialogFooter></DialogFooter>

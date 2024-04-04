@@ -6,6 +6,7 @@ const { guest } = storeToRefs(useAuthStore());
 
 const button = <any>{
   icon: guest.value.icon,
+  showText: false,
   text: guest.value.name,
   variant: "outline",
 };
@@ -13,8 +14,8 @@ const button = <any>{
 const dialog = {
   icon: guest.value.icon,
   description: "You can login here",
-  title: guest.value.name + ` Login`,
-  loginButtontext: "Log me in!",
+  title: guest.value.name,
+  loginButtontext: "Login",
 };
 </script>
 
@@ -24,7 +25,7 @@ const dialog = {
       <DialogTrigger>
         <Button :variant="button.variant">
           <Icon :icon="button.icon" />
-          <strong v-text="button.text" />
+          <strong v-if="button.showText" v-text="button.text" />
         </Button>
       </DialogTrigger>
 

@@ -5,15 +5,10 @@ definePageMeta({
   icon: "mdi:comment-person",
   order: 1,
 });
-
-const { data, error, pending } = await useFetch("/api/pages", {
-  pick: ["about"],
-  server: false,
-});
 </script>
 
 <template>
   <div class="container">
-    <PageHero :data="data"> about </PageHero>
+    <PageHero> about </PageHero>
   </div>
 </template>

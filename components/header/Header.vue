@@ -13,7 +13,7 @@ const auth = useAuthStore();
       <div id="header-append" class="flex items-center">
         <AppNavigation class="mr-4" />
         <BtnTheme />
-
+        <BtnDev />
         <BtnUser v-if="auth.isLoggedIn" />
         <BtnLogin v-else />
       </div>

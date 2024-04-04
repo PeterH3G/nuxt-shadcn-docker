@@ -3,7 +3,7 @@ export const useAuthStore = defineStore({
   state: () => ({
     isLoggedIn: false,
     guest: {
-      name: "Plugin",
+      name: "Login",
       icon: 'mdi:plug',
     },
     user: {
