@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const layoutIsCentered = useAppConfig().layout.isCentered;
-const layoutMaxWidth = layoutIsCentered
+const isLayoutCentered = useAppConfig().layout.isCentered;
+const layoutMaxWidth = isLayoutCentered
   ? useAppConfig().layout.maxWidth
   : "100%";
 </script>
