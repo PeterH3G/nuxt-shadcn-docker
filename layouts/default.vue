@@ -18,14 +18,17 @@ const layoutMaxWidth = layoutIsCentered
 </template>
 
 <style scoped>
+/** LAYOUT GRID SETTINGS */
 .layout {
   display: grid;
   grid-template-columns: 1;
   grid-template-rows: auto 1fr auto;
 }
 
-/** CENTERED CONTENT */
-.layout main > :nth-child(1) {
+/** CENTERED LAYOUT CONTENT */
+.layout header > :nth-child(1),
+.layout main > :nth-child(1),
+.layout footer > :nth-child(1) {
   width: 100%;
   max-width: v-bind(layoutMaxWidth);
   @apply mx-auto;

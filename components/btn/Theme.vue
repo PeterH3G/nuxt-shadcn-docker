@@ -21,11 +21,31 @@ const dropdownItems = <any>[
 ];
 
 const colorMode = useColorMode();
+const quickSwitch = () => {
+  colorMode.preference = colorMode.preference === "dark" ? "light" : "dark";
+};
+const useQuickSwitch = ref(true);
 </script>
 
 <template>
   <client-only>
-    <DropdownMenu>
+    <Button
+      v-if="useQuickSwitch"
+      @click="quickSwitch()"
+      :variant="button.variant"
+    >
+      <Icon
+        :icon="dropdownLabel.iconDark"
+        class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+      />
+      <Icon
+        :icon="dropdownLabel.iconLight"
+        class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+      />
+      <span class="sr-only">{{ button.text }}</span>
+    </Button>
+
+    <DropdownMenu v-if="!useQuickSwitch">
       <DropdownMenuTrigger as-child>
         <Button :variant="button.variant">
           <Icon

@@ -20,12 +20,10 @@ const card = {
           <span v-text="$route.meta.title" />
         </div>
         <div class="append flex justify-end items-center">
-          <DevApi :data="props.data" />
+          <BtnApi :data="props.data" />
         </div>
       </CardTitle>
-      <CardDescription
-        v-text="card.showDescription ? $route.meta.description : ''"
-      />
+      <CardDescription v-text="card.showDescription ? $route.meta.description : ''" />
     </CardHeader>
 
     <CardContent> </CardContent>

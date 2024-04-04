@@ -24,7 +24,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   experimental: {
-    componentIslands: false,
+    componentIslands: true,
   },
 
   imports: {

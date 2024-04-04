@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const avatar_url = useAppConfig().avatar_url;
 const brand = useAppConfig().brand;
 const layoutIsCentered = useAppConfig().layout.isCentered;
 const layoutMaxWidth = layoutIsCentered
@@ -14,12 +13,14 @@ useHead({
   meta: [{ name: "description", content: `${brand.title} ${brand.subtitle}` }],
   bodyAttrs: {
     class: "app",
-    style: `background-image: url(${avatar_url})`,
   },
 });
+
+const showBackgroundAvatar = ref(true);
 </script>
 
 <template>
+  <AppBackground :showAvatar="showBackgroundAvatar" />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
@@ -35,15 +36,18 @@ body,
 }
 
 html.dark .layout {
-  background: radial-gradient(rgba(255, 255, 255, 0.75),
-      rgba(255, 255, 255, 0));
+  background: radial-gradient(
+    rgba(255, 255, 255, 0.75),
+    rgba(255, 255, 255, 0)
+  );
 }
 
 html.light .layout {
   background: radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
 }
 
-body {
+body.bg-avatar {
+  background-image: url(${avatar_url});
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -72,8 +76,8 @@ body {
 }
 
 /** CENTERED CONTENT */
-.layout header> :nth-child(1),
-.layout footer> :nth-child(1) {
+.layout header > :nth-child(1),
+.layout footer > :nth-child(1) {
   width: 100%;
   max-width: v-bind(layoutMaxWidth);
   @apply mx-auto;
