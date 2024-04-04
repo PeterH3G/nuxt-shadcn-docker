@@ -1,75 +1,27 @@
-# Nuxt 3 Minimal Starter
+# PeterH3G shadcn
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
+## Setup with [Bun.sh](`https://bun.sh`)
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
+# Make sure to install the dependencies:
 bun install
-```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
+# Development Server: http://localhost:3000
 bun run dev
-```
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
+# Build the application for production:
 bun run build
-```
 
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
+# Locally preview production build:
 bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+### Documentation
+
+- [Bun: Develop, test, run, and bundle JavaScript & TypeScript projects](https://bun.sh)
+- [Nuxt 3: The Intuitive Vue Framework](https://nuxt.com)
+- [Nuxt 3 deployment documentation](https://nuxt.com/docs/getting-started/deployment)
+- [TailwindCSS: Rapidly build modern websites without ever leaving your HTML](https://tailwindcss.com/)
+- [Shadcn/vue: Shadcn component library for Vue](https://www.shadcn-vue.com/)
+- [Radix Vue: Vue Port of Radix UI](https://www.radix-vue.com/)
+- [Iconify: The easiest way to use icons in your projects](https://iconify.design/)
