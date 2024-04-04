@@ -43,7 +43,7 @@ export default defineNuxtConfig({
       "shadcn-nuxt",
       {
         prefix: "", // Prefix for all the imported component
-        componentDir: "./components/ui", // @default "./components/ui"
+        componentDir: "./src/components/ui", // @default "./components/ui"
       },
     ],
     [
@@ -61,4 +61,6 @@ export default defineNuxtConfig({
       tailwindcss: {},
     },
   },
+
+  srcDir: 'src/',
 });

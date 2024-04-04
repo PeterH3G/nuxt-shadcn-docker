@@ -5,6 +5,8 @@ const layoutMaxWidth = layoutIsCentered
   ? useAppConfig().layout.maxWidth
   : "100%";
 
+const show_background_avatar = useAppConfig().show_background_avatar;
+
 useHead({
   title: brand.title,
   titleTemplate: (titleChunk) => {
@@ -12,18 +14,17 @@ useHead({
   },
   meta: [{ name: "description", content: `${brand.title} ${brand.subtitle}` }],
   bodyAttrs: {
-    class: "app",
+    class: `app ${show_background_avatar ? "bg-avatar" : ""}`,
   },
 });
-
-const showBackgroundAvatar = ref(true);
 </script>
 
 <template>
-  <AppBackground :showAvatar="showBackgroundAvatar" />
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+  <AppBackground>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </AppBackground>
 </template>
 
 <style>
@@ -33,23 +34,6 @@ body,
 #__nuxt {
   width: 100%;
   height: 100%;
-}
-
-html.dark .layout {
-  background: radial-gradient(
-    rgba(255, 255, 255, 0.75),
-    rgba(255, 255, 255, 0)
-  );
-}
-
-html.light .layout {
-  background: radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-}
-
-body.bg-avatar {
-  background-image: url(${avatar_url});
-  background-position: center center;
-  background-repeat: no-repeat;
 }
 
 /** LAYOUT TRANSITIONS */
