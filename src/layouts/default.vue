@@ -7,13 +7,11 @@ const layoutMaxWidth = layoutIsCentered
 
 <template>
   <div class="layout min-h-full">
-    <Header />
-
+    <LayoutHeader />
     <main>
       <slot />
     </main>
-
-    <Footer />
+    <LayoutFooter />
   </div>
 </template>
 

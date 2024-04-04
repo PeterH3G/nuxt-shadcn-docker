@@ -6,10 +6,10 @@ const disclaimer = "&reg; All rights reserved";
   <footer>
     <div class="container">
       <div class="foot left">
-        <FooterPoweredby />
+        <LayoutFooterPoweredby />
       </div>
       <div class="foot right">
-        <FooterSocials />
+        <LayoutFooterSocials />
       </div>
 
       <div class="foot disclaimer" v-html="disclaimer" />

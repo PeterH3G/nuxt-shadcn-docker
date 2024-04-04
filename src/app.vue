@@ -20,11 +20,11 @@ useHead({
 </script>
 
 <template>
-  <AppBackground>
+  <LayoutBackground>
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
-  </AppBackground>
+  </LayoutBackground>
 </template>
 
 <style>

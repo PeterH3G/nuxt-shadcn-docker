@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const avatar_url = useAppConfig().avatar_url;
+const avatar_url = "https://avatars.githubusercontent.com/u/500234?v=4";
 const brandTitle = useAppConfig().brand.title;
 const brandSubtitle = useAppConfig().brand.subtitle;
 </script>
