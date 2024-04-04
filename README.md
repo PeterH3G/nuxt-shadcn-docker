@@ -1,28 +1,54 @@
-# PeterH3G shadcn
+# PeterH3G shadcn - with [Bun.sh](https://bun.sh)
 
-## Setup with [Bun.sh](`https://bun.sh`)
+<br><br>
+
+## Install the dependencies
 
 ```bash
-# Make sure to install the dependencies:
 bun install
+```
 
-# Development Server: http://localhost:3000
+### Start Development Server
+
+```bash
 bun run dev
+```
 
-# Build the application for production:
+Development server: [localhost:3000](http://localhost:3000)
+
+### Build the application for production
+
+```bash
 bun run build
+```
 
-# Locally preview production build:
+### Locally preview production build
+
+```bash
 bun run preview
+```
 
-# Docker Application Server: http://localhost:8080
+<br><br>
+
+## Production Application with [Docker](https://docker.com)
+
+### Start Docker Application
+
+```bash
 bun run docker
+```
 
-# Build Docker Application:
+Docker Application Server: [localhost:8080](http://localhost:8080)
+
+### Build Docker Application
+
+```bash
 bun run docker-build
 ```
 
-### Setup Documentation
+<br><br>
+
+## Setup Documentation
 
 <a href="https://bun.sh" target="_blank"><b>Bun</b>: Develop, test, run, and bundle JavaScript & TypeScript projects</a>
 
