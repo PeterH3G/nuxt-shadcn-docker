@@ -1,6 +1,8 @@
-# PeterH3G Pages - with [Bun.sh](https://bun.sh)
+# nuxt-shadcn-base
 
-## Install the dependencies
+## Build with [Bun.sh](https://bun.sh)
+
+### Install the dependencies
 
 ```bash
 bun install
