@@ -1,4 +1,4 @@
-# PeterH3G shadcn - with [Bun.sh](https://bun.sh)
+# PeterH3G Pages - with [Bun.sh](https://bun.sh)
 
 ## Install the dependencies
 
