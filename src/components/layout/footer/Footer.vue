@@ -1,58 +1,42 @@
 <script setup lang="ts">
-const disclaimer = "&reg; All rights reserved";
+import { Icon } from "@iconify/vue";
+
+const brandTitle = useAppConfig().brand.title;
+const disclaimer = "All rights reserved";
 </script>
 
 <template>
-  <footer>
+  <footer class="flex justify-center items-center">
     <div class="container">
-      <div class="foot left">
-        <LayoutFooterPoweredby />
+      <div class="left">
+        <LayoutFooterPoweredby class="content" />
       </div>
-      <div class="foot right">
-        <LayoutFooterSocials />
+      <div class="right">
+        <LayoutFooterSocials class="content" />
       </div>
-
-      <div class="foot disclaimer" v-html="disclaimer" />
+      <div class="disclaimer">
+        {{ brandTitle }}
+        <Icon icon="mdi:registered-trademark" /> 
+        <span v-text="`| ${disclaimer}`" class="ml-2" />
+      </div>
     </div>
   </footer>
 </template>
 
 <style>
-footer {
-  @apply flex justify-center items-center py-2;
-}
 footer .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2;
-  grid-template-areas: "left right" "disclaimer disclaimer";
-  grid-gap: 10px;
+  @apply grid grid-cols-2 grid-flow-row gap-2 sm:gap-4 p-2;
+  @apply justify-start items-start;
 }
-footer .foot.left {
-  grid-area: left;
+footer .left,
+footer .right {
+  @apply flex flex-col;
 }
-footer .foot.right {
-  grid-area: right;
-}
-footer .foot.disclaimer {
-  grid-area: disclaimer;
-  @apply text-center text-xs;
-}
-
-footer .foot {
-  @apply items-center justify-center;
-}
-footer .foot .content {
-  @apply flex flex-col items-center;
-  @apply bg-card rounded-md py-4 h-full;
-}
-footer .foot strong.label {
-  @apply text-center uppercase;
-}
-footer .foot ul.items {
+footer .content > .items {
   @apply flex flex-wrap justify-center items-center;
 }
-footer .foot.center .content {
-  @apply justify-center;
+footer .disclaimer {
+  @apply col-span-2 flex justify-center items-center;
+  @apply text-xs;
 }
 </style>

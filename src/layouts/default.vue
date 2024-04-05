@@ -1,6 +1,5 @@
 <script setup lang="ts">
-const isLayoutCentered = useAppConfig().layout.isCentered;
-const layoutMaxWidth = isLayoutCentered
+const maxWidth = useAppConfig().layout.isCentered
   ? useAppConfig().layout.maxWidth
   : "100%";
 </script>
@@ -15,7 +14,7 @@ const layoutMaxWidth = isLayoutCentered
   </div>
 </template>
 
-<style scoped>
+<style>
 /** LAYOUT GRID SETTINGS */
 .layout {
   display: grid;
@@ -23,12 +22,33 @@ const layoutMaxWidth = isLayoutCentered
   grid-template-rows: auto 1fr auto;
 }
 
-/** CENTERED LAYOUT CONTENT */
+/** LAYOUT COMPONENT GLOBALS */
+.layout header,
+.layout footer {
+  @apply bg-gray-200 dark:bg-gray-900;
+}
+
+/** CENTERED CONTENT GLOBALS */
 .layout header > :nth-child(1),
-.layout main > :nth-child(1),
+.layout main .page .container,
 .layout footer > :nth-child(1) {
   width: 100%;
-  max-width: v-bind(layoutMaxWidth);
-  @apply mx-auto;
+  max-width: v-bind(maxWidth);
+  background-color: rgba(255, 255, 255, 0.01);
+  @apply m-auto p-4;
+}
+
+/** CUSTOM GLOBALS */
+.page {
+  @apply h-full;
+}
+.label {
+  @apply bg-gray-400 dark:bg-gray-800;
+  @apply flex justify-center items-center py-2 sm:py-4;
+  @apply text-sm;
+}
+.content {
+  @apply bg-gray-300 dark:bg-gray-700;
+  @apply text-sm;
 }
 </style>

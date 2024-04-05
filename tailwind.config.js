@@ -16,14 +16,6 @@ module.exports = {
   safelist: ["dark"],
 
   theme: {
-    container: {
-      center: true,
-      padding: "10px",
-      screens: {
-        xl: "1000px",
-        "2xl": "1400px",
-      },
-    },
     extend: {
       colors: {
         border: "hsl(var(--border))",

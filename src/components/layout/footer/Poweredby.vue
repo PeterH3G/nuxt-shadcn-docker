@@ -3,6 +3,7 @@ import { Icon } from "@iconify/vue";
 
 const poweredby = {
   label: "Powered By",
+  labelIcon: 'mdi:flash',
   items: [
     {
       title: "Github Pages",
@@ -26,8 +27,11 @@ const poweredby = {
 </script>
 
 <template>
-  <div class="poweredby content">
-    <strong class="label" v-text="poweredby.label" />
+  <div class="poweredby">
+    <strong class="label">
+      <Icon :icon="poweredby.labelIcon" />
+      {{ poweredby.label }}
+    </strong>
     <ul class="items">
       <li v-for="(item, i) in poweredby.items" :key="i">
         <Button :to="item.href" target="_blank" :variant="`ghost`">

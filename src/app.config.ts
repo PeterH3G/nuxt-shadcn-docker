@@ -7,7 +7,7 @@ export default defineAppConfig({
   },
 
   layout: {
-    isCentered: true,
-    maxWidth: "800px",
+    isCentered: true, // if false, maxWidth uses 100%
+    maxWidth: "800px", // if layout.isCentered: true
   },
 });

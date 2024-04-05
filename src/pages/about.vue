@@ -8,7 +8,7 @@ definePageMeta({
 </script>
 
 <template>
-  <div class="container">
+  <div class="page">
     <PageHero> about </PageHero>
   </div>
 </template>

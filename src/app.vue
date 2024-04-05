@@ -1,10 +1,5 @@
 <script setup lang="ts">
 const brand = useAppConfig().brand;
-const layoutIsCentered = useAppConfig().layout.isCentered;
-const layoutMaxWidth = layoutIsCentered
-  ? useAppConfig().layout.maxWidth
-  : "100%";
-
 const show_background_avatar = useAppConfig().show_background_avatar;
 
 useHead({
@@ -20,15 +15,12 @@ useHead({
 </script>
 
 <template>
-  <LayoutBackground>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-  </LayoutBackground>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
 
 <style>
-/** FULL DIMENSION */
 html,
 body,
 #__nuxt {
@@ -36,34 +28,22 @@ body,
   height: 100%;
 }
 
-/** LAYOUT TRANSITIONS */
 .layout-enter-active,
 .layout-leave-active {
   transition: all 0.4s;
 }
-
 .layout-enter-from,
 .layout-leave-to {
   filter: grayscale(1);
 }
 
-/** PAGE TRANSITIONS */
 .page-enter-active,
 .page-leave-active {
   transition: all 0.4s;
 }
-
 .page-enter-from,
 .page-leave-to {
   opacity: 0;
   filter: blur(1rem);
-}
-
-/** CENTERED CONTENT */
-.layout header > :nth-child(1),
-.layout footer > :nth-child(1) {
-  width: 100%;
-  max-width: v-bind(layoutMaxWidth);
-  @apply mx-auto;
 }
 </style>

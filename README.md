@@ -52,7 +52,9 @@ bun run docker-build
 
 <a href="https://nuxt.com" target="_blank"><b>Nuxt 3</b>: The Intuitive Vue Framework</a>
 
-<a href="https://nuxt.com/docs/getting-started/deployment" target="_blank"><b>Nuxt 3</b> deployment documentation</a>
+<a href="https://nuxt.com/docs/api/configuration/nuxt-config" target="_blank"><b>Nuxt 3 Application</b>: nuxt.config.ts</a>
+
+<a href="https://nuxt.com/docs/getting-started/deployment" target="_blank"><b>Nuxt 3 Application</b> deployment documentation</a>
 
 <a href="https://tailwindcss.com/" target="_blank"><b>TailwindCSS</b>: Rapidly build modern websites</a>
 

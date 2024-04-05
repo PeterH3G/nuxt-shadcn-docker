@@ -19,15 +19,15 @@ const brandSubtitle = useAppConfig().brand.subtitle;
   @apply flex items-center;
 }
 img.logo {
-  @apply h-12;
+  @apply h-8;
 }
 .titles {
   @apply flex flex-col;
 }
 .title {
-  font-size: 1rem;
+  @apply text-xs;
 }
 .subtitle {
-  font-size: 0.9rem;
+  @apply text-xs;
 }
 </style>

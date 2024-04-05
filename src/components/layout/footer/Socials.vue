@@ -2,7 +2,8 @@
 import { Icon } from "@iconify/vue";
 
 const socials = {
-  label: "My socials",
+  label: "Socials",
+  labelIcon: "mdi:account-multiple",
   items: [
     {
       title: "Github",
@@ -19,8 +20,11 @@ const socials = {
 </script>
 
 <template>
-  <div class="socials content">
-    <strong class="label" v-text="socials.label" />
+  <div class="socials">
+    <strong class="label">
+      <Icon :icon="socials.labelIcon" />
+      {{ socials.label }}
+    </strong>
     <ul class="items">
       <li v-for="(item, i) in socials.items" :key="i">
         <Button :href="item.href" target="_blank" :variant="`ghost`">
