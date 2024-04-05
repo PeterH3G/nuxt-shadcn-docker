@@ -12,7 +12,7 @@ const card = {
 </script>
 
 <template>
-  <Card id="hero" class="min-h-full grid grid-rows-[auto_1fr_auto] py-0 sm:py-4">
+  <Card id="hero" class="min-h-full grid grid-rows-[auto_1fr_auto]">
     <CardHeader class="container">
       <CardTitle class="flex justify-between items-center">
         <div class="prepend flex justify-start items-center">
@@ -33,3 +33,12 @@ const card = {
     </CardFooter>
   </Card>
 </template>
+
+<style scoped>
+#hero {
+  @apply py-2 md:py-4;
+}
+#hero .container {
+  @apply bg-card;
+}
+</style>

@@ -25,32 +25,25 @@ export default defineNuxtConfig({
     componentIslands: true,
   },
 
-  imports: {
-    dirs: ["stores"],
-  },
-
   modules: [
-    [
-      "@nuxtjs/color-mode",
-      {
-        classSuffix: "",
-      },
-    ],
-    ["@nuxtjs/tailwindcss", {}],
-    [
-      "shadcn-nuxt",
-      {
-        prefix: "", // Prefix for all the imported component
-        componentDir: "./src/components/ui", // @default "./components/ui"
-      },
-    ],
-    [
-      "@pinia/nuxt",
-      {
-        autoImports: ["defineStore", "acceptHMRUpdate"],
-      },
-    ],
+    "@nuxtjs/color-mode",
+    "@nuxtjs/tailwindcss",
+    "@pinia/nuxt",
+    "shadcn-nuxt",
   ],
+
+  /** MODULES */
+  colorMode: {
+    classSuffix: "",
+  },
+  tailwindcss: {},
+  pinia: {
+    storesDirs: ["./src/stores/**"],
+  },
+  shadcn: {
+    prefix: "", // Prefix for all the imported component
+    componentDir: "./src/components/ui", // @default "./components/ui"
+  },
 
   postcss: {
     plugins: {
