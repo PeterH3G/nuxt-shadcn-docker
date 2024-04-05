@@ -1,14 +1,7 @@
-<script setup lang="ts">
-definePageMeta({
-  slug: "home",
-  description: "Hello Universe!",
-  icon: "mdi:home",
-  order: 0,
-});
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="page">
-    <PageHero> index </PageHero>
+    <Card> index </Card>
   </div>
 </template>

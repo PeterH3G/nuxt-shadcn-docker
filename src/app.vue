@@ -1,15 +1,14 @@
 <script setup lang="ts">
-const brand = useAppConfig().brand;
-const show_background_avatar = useAppConfig().show_background_avatar;
+const appName = useAppConfig().app.name;
 
 useHead({
-  title: brand.title,
+  title: appName,
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${brand.title}` : `${brand.title}`;
+    return titleChunk ? `${appName}` : `${appName}`;
   },
-  meta: [{ name: "description", content: `${brand.title} ${brand.subtitle}` }],
+  meta: [{ name: "description", content: `${appName}` }],
   bodyAttrs: {
-    class: `app ${show_background_avatar ? "bg-avatar" : ""}`,
+    class: `app`,
   },
 });
 </script>

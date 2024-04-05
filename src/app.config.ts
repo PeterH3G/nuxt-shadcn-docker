@@ -1,13 +1,11 @@
 export default defineAppConfig({
-  show_background_avatar: true,
-
-  brand: {
-    title: "PeterH3G",
-    subtitle: "My Pages",
+  app: {
+    name: "PeterH3G",
+    title: "nuxt-shadcn-base",
   },
 
   layout: {
-    isCentered: true, // if false, maxWidth uses 100%
-    maxWidth: "800px", // if layout.isCentered: true
+    isCentered: true, // false = maxWidth 100%
+    maxWidth: "800px", // layout.isCentered = true
   },
 });
