@@ -6,11 +6,11 @@ const maxWidth = globals.value.maxWidth;
 
 <template>
   <div class="layout grid grid-rows-[auto_1fr_auto] min-h-full">
-    <Header />
+    <LayoutHeader />
     <main>
       <slot />
     </main>
-    <Footer />
+    <LayoutFooter />
   </div>
 </template>
 

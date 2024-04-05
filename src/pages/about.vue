@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
-  title: "About",
+  slug: "about",
   description: "About PeterH3G",
   icon: "mdi:comment-person",
   order: 1,

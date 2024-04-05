@@ -6,7 +6,7 @@ const auth = useAuthStore();
 </script>
 
 <template>
-  <header class="flex h-auto items-center py-2 md:py-4">
+  <header class="flex h-auto items-center p-2 md:p-4">
     <div class="container flex justify-between items-center">
       <div id="header-prepend">
         <LayoutLogo />

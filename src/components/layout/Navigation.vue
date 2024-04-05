@@ -14,7 +14,7 @@ const routes = [...useRouter().options.routes]
         <NuxtLink :to="item.path" class="link">
           <Button variant="ghost">
             <Icon :icon="`${item.meta?.icon}`" />
-            {{ item.meta?.title }}
+            {{ item.meta?.slug }}
           </Button>
         </NuxtLink>
       </NavigationMenuItem>

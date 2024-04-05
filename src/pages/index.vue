@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
-  title: "Home",
+  slug: "home",
   description: "Hello Universe!",
   icon: "mdi:home",
   order: 0,

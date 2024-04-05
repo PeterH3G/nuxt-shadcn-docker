@@ -17,7 +17,7 @@ const card = {
       <CardTitle class="flex justify-between items-center">
         <div class="prepend flex justify-start items-center">
           <Icon :icon="`${$route.meta.icon}`" />
-          <span v-text="$route.meta.title" />
+          <span v-text="$route.meta.slug" />
         </div>
         <div class="append flex justify-end items-center"></div>
       </CardTitle>

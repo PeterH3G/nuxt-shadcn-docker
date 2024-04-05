@@ -31,8 +31,6 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "shadcn-nuxt",
   ],
-
-  /** MODULES */
   colorMode: {
     classSuffix: "",
   },
@@ -44,7 +42,6 @@ export default defineNuxtConfig({
     prefix: "", // Prefix for all the imported component
     componentDir: "./src/components/ui", // @default "./components/ui"
   },
-
   postcss: {
     plugins: {
       autoprefixer: {},

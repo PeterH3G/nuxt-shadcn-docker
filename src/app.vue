@@ -5,7 +5,7 @@ const show_background_avatar = useAppConfig().show_background_avatar;
 useHead({
   title: brand.title,
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${brand.title} | route.name` : `route.name`;
+    return titleChunk ? `${brand.title}` : `${brand.title}`;
   },
   meta: [{ name: "description", content: `${brand.title} ${brand.subtitle}` }],
   bodyAttrs: {
