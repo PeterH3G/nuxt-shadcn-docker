@@ -1,15 +1,20 @@
 <script setup lang="ts">
 definePageMeta({
   name: "Home",
-  icon: 'mdi:home',
+  icon: "mdi:home",
   order: 0,
 });
 
-const routes = useNuxtApp().$sortedRoutes;
+// DATA SETTINGS
+const { pending, data } = await useLazyFetch("/api/pages/home");
+watch(data, (newData) => {
+  // Because posts might start out null, you won't have access
+  // to its contents immediately, but you can watch it.
+});
 </script>
 
 <template>
   <Card class="page container bg-card">
-    {{ routes }}
-    </Card>
+    <pre v-text="data" class="p-4 bg-muted text-muted-foreground rounded-md" />
+  </Card>
 </template>

@@ -9,7 +9,7 @@ defineProps<{
 // ICON SETTINGS
 const icon = {
   trigger: "mdi:tools",
-  cancel: "mdi:cancel",
+  close: "mdi:cancel",
 };
 const iconOnly = ref(true);
 
@@ -27,12 +27,19 @@ const drawer = <any>{
     text: "Developer navigations & settings",
   },
   close: {
-    icon: icon.cancel,
+    icon: icon.close,
     variant: "outline",
-    text: "Cancel",
+    text: "Close",
   },
 };
 const isOpen = ref(false);
+
+// DATA SETTINGS
+const { pending, data: developer } = await useLazyFetch('/api/developer')
+watch(developer, (newDeveloper) => {
+  // Because posts might start out null, you won't have access
+  // to its contents immediately, but you can watch it.
+})
 </script>
 
 <template>
@@ -57,6 +64,9 @@ const isOpen = ref(false);
             {{ drawer.description.text }}
           </DrawerDescription>
         </DrawerHeader>
+
+        <pre v-text="developer" />
+
         <DrawerFooter class="pt-2">
           <DrawerClose as-child>
             <Button class="drawer-cancel" :variant="drawer.close.variant">

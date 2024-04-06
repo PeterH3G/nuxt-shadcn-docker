@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
-import { useForm } from "vee-validate";
-import { toTypedSchema } from "@vee-validate/zod";
-import * as z from "zod";
 
 // ICON SETTINGS
 const icon = {
@@ -36,19 +33,6 @@ const dialog = <any>{
     },
   },
 };
-
-// FORM SETTINGS
-const formSchema = toTypedSchema(
-  z.object({
-    username: z.string().min(2).max(50),
-  })
-);
-const form = useForm({
-  validationSchema: formSchema,
-});
-const onSubmit = form.handleSubmit((values) => {
-  console.log("Form submitted!", values);
-});
 </script>
 
 <template>
@@ -73,42 +57,8 @@ const onSubmit = form.handleSubmit((values) => {
           <DialogDescription v-text="dialog.dialogDescription" />
         </DialogHeader>
 
-        <form @submit="onSubmit">
-          <FormField v-slot="{ componentField }" name="username">
-            <FormItem>
-              <FormLabel class="form-label">
-                <Icon :icon="icon.username" />
-                <strong v-text="`Username`" />
-              </FormLabel>
-              <FormControl>
-                <Input
-                  type="text"
-                  placeholder="shadcn"
-                  v-bind="componentField"
-                />
-              </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          </FormField>
-
-          <DialogFooter>
-            <Button type="submit">
-              <Icon :icon="dialog.footer.button.icon" />{{
-                dialog.footer.button.text
-              }}</Button
-            >
-          </DialogFooter>
-        </form>
+        <DialogFooter> </DialogFooter>
       </DialogContent>
     </Dialog>
   </client-only>
 </template>
-
-<style scoped>
-.form-label {
-  @apply flex justify-start items-center;
-}
-</style>
