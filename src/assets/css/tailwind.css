@@ -105,7 +105,4 @@
   body {
     @apply bg-background text-foreground;
   }
-  .page {
-    @apply px-4;
-  }
 }

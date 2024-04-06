@@ -2,13 +2,18 @@
 import { Icon } from "@iconify/vue";
 
 const appName = useAppConfig().app.name;
-const appDisclaimer = "&reg; 2024 | All rights reserved";
 const maxWidth = useAppConfig().layout.maxWidth;
 </script>
 
 <template>
   <div class="layout grid grid-rows-[auto_1fr_auto] min-h-full">
-    <AppHeader />
+    <AppHeader>
+      <template #drawer-button>
+        <Button class="drawer-button" variant="ghost"
+          ><Icon icon="mdi:menu"
+        /></Button>
+      </template>
+    </AppHeader>
     <main class="flex flex-col justify-center items-center">
       <slot />
     </main>
@@ -24,5 +29,11 @@ const maxWidth = useAppConfig().layout.maxWidth;
   width: 100%;
   max-width: v-bind(maxWidth);
   @apply m-auto py-2;
+}
+
+/* Layout components */
+.layout .drawer-button {
+  @apply flex md:hidden w-10 h-10 p-0;
+  @apply rounded-full text-2xl;
 }
 </style>

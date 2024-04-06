@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Icon } from "@iconify/vue";
-
 const appName = useAppConfig().app.name;
 </script>
 
@@ -12,10 +10,9 @@ const appName = useAppConfig().app.name;
         <span>{{ appName }}</span>
       </div>
       <div class="append">
-        <Button class="drawer-button" variant="ghost"
-          ><Icon icon="mdi:menu"
-        /></Button>
+        <AppNavigation />
       </div>
+      <slot name="drawer-button" />
     </div>
   </header>
 </template>
@@ -25,24 +22,21 @@ const appName = useAppConfig().app.name;
 .container.header {
   @apply flex justify-between items-center;
 }
-.container.header .prepend,
+.container.header .prepend {
+  @apply w-full;
+  @apply flex justify-start items-center;
+}
 .container.header .append {
-  @apply flex justify-center items-center;
+  @apply w-full hidden;
+  @apply md:flex justify-end items-center;
 }
 
-/* Layout Components */
+/* Header elements */
 .app-logo {
   background-image: url("https://avatars.githubusercontent.com/u/500234?v=4");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  @apply mr-4;
-}
-.app-logo,
-.drawer-button {
-  @apply w-10 h-10 p-0 rounded-full;
-}
-.drawer-button {
-  @apply text-3xl;
+  @apply mr-2 w-10 h-10 p-0 rounded-full;
 }
 </style>
