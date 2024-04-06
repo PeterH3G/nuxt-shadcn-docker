@@ -1,12 +1,8 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 import { storeToRefs } from "pinia";
-const { authenticated } = storeToRefs(useAuthStore());
-
-const getOrder = (route: any) => route.meta?.order ?? 0;
-const routes = [...useRouter().options.routes]
-  .sort((a: any, b: any) => getOrder(a) - getOrder(b))
-  .filter((route) => getOrder(route) > -1);
+const { authenticated } = storeToRefs(useAuthStore());  
+const routes = useNuxtApp().$sortedRoutes;
 </script>
 
 <template>

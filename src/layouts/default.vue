@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
-
-const appName = useAppConfig().app.name;
 const maxWidth = useAppConfig().layout.maxWidth;
 </script>
 
