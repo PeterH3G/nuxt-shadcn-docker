@@ -4,6 +4,23 @@ import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import * as z from "zod";
 
+const icon = {
+  menu: "mdi:login",
+};
+
+const config = <any>{
+  dialogButton: {
+    variant: "outline",
+    text: "Toggle theme",
+  },
+  dialogTitle: "Login",
+  dialogDescription: "You can login here",
+  menuLabel: {
+    show: true,
+    text: "Theme Options",
+  },
+};
+
 const formSchema = toTypedSchema(
   z.object({
     username: z.string().min(2).max(50),
@@ -17,25 +34,24 @@ const form = useForm({
 const onSubmit = form.handleSubmit((values) => {
   console.log("Form submitted!", values);
 });
-
 </script>
 
 <template>
   <client-only>
     <Dialog>
       <DialogTrigger>
-        <Button class="rounded-full hover:bg-secondary" variant="ghost">
-          <Icon icon="mdi:login" />
+        <Button :variant="config.dialogButton.variant">
+          <Icon :icon="icon.menu" />
         </Button>
       </DialogTrigger>
 
       <DialogContent class="dark:border-card dark:bg-card">
         <DialogHeader>
           <DialogTitle class="flex justify-start items-center">
-            <Icon icon="mdi:login" />
-            <span v-text="`Login`" />
+            <Icon :icon="icon.menu" />
+            <span v-text="config.dialogTitle" />
           </DialogTitle>
-          <DialogDescription>Login here</DialogDescription>
+          <DialogDescription v-text="config.dialogDescription" />
         </DialogHeader>
 
         <form @submit="onSubmit">
@@ -57,7 +73,9 @@ const onSubmit = form.handleSubmit((values) => {
           </FormField>
 
           <DialogFooter>
-            <Button type="submit"> <Icon icon="mdi:login" />Login </Button>
+            <Button type="submit">
+              <Icon :icon="icon.menu" />{{ config.buttonText }}</Button
+            >
           </DialogFooter>
         </form>
       </DialogContent>

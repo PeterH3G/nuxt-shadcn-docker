@@ -3,6 +3,9 @@ import { Icon } from "@iconify/vue";
 import { storeToRefs } from "pinia";
 const { authenticated } = storeToRefs(useAuthStore());  
 const routes = useNuxtApp().$sortedRoutes;
+const icon = {
+  test: 'mdi:book-open-page-variant',
+}
 </script>
 
 <template>
@@ -12,7 +15,7 @@ const routes = useNuxtApp().$sortedRoutes;
         <NavigationMenuItem v-if="!item.meta?.middleware">
           <NuxtLink :to="item.path">
             <Button class="bg-primary text-primary-foreground" variant="ghost">
-              <Icon :icon="`${item.meta?.icon}`" />
+              <Icon :icon="icon.test" />
               {{ item.meta?.name }}
             </Button>
           </NuxtLink>
@@ -20,7 +23,7 @@ const routes = useNuxtApp().$sortedRoutes;
         <NavigationMenuItem v-if="item.meta?.middleware && authenticated">
           <NuxtLink :to="item.path">
             <Button class="bg-primary text-primary-foreground" variant="ghost">
-              <Icon :icon="`${item.meta?.icon}`" />
+              <Icon :icon="icon.test" />
               {{ item.meta?.name }}
             </Button>
           </NuxtLink>

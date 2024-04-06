@@ -1,16 +1,25 @@
 <script setup lang="ts">
-const appName = useAppConfig().app.name;
+const appTitle = useAppConfig().app.name;
+const appSubtitle = useAppConfig().app.repository;
 </script>
 
 <template>
   <header>
     <div class="container header">
       <div class="prepend">
-        <Button class="app-logo" href="/" variant="ghost" />
-        <span>{{ appName }}</span>
+        <NuxtLink href="/">
+          <Button class="app-logo" variant="ghost" />
+        </NuxtLink>
+
+        <div class="app-titles">
+          <strong v-text="appTitle" />
+          <span v-text="appSubtitle" />
+        </div>
       </div>
       <div class="append">
         <AppNavigation class="mr-2" />
+        <AppButtonTheme />
+        <AppButtonDeveloper />
         <AppDialogLogin />
       </div>
       <slot name="drawer-button" />
@@ -39,5 +48,8 @@ const appName = useAppConfig().app.name;
   background-position: center center;
   background-size: cover;
   @apply mr-2 w-10 h-10 p-0 rounded-full;
+}
+.app-titles {
+  @apply flex flex-col text-xs;
 }
 </style>

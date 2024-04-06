@@ -1,11 +1,12 @@
 export default defineAppConfig({
   app: {
     name: "PeterH3G",
-    title: "nuxt-shadcn-base",
+    description: "nuxt-shadcn-bun",
+    repository: "nuxt-shadcn-bun"
   },
 
   layout: {
     isCentered: true, // false = maxWidth 100%
-    maxWidth: "500px", // layout.isCentered = true
+    maxWidth: "800px", // layout.isCentered = true
   },
 });
