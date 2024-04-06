@@ -4,20 +4,30 @@
 
 __Install the dependencies__
 
-```bash bun install```
+```bash
+bash bun install 
+```
 
 __Start Development Server__<br>
 Development server: [localhost:3000](http://localhost:3000)
 
-```bun run dev```
+
+```bash
+bun run dev
+```
 
 __Build the application for production__
 
-```bun run build```
+
+```bash
+bun run build
+```
 
 __Locally preview production build__
 
-```bun run preview```
+```bash
+bun run preview
+```
 
 <br>
 
@@ -26,11 +36,17 @@ __Locally preview production build__
 __Start Docker Application__<br>
 Docker Server: [localhost:8080](http://localhost:8080)
 
-```bun run docker```
+
+```bash
+bun run docker
+```
 
 __Build Docker Application__
 
-```bun run docker-build```
+
+```bash
+bun run docker-build
+```
 
 <br>
 
@@ -38,11 +54,17 @@ __Build Docker Application__
 
 __Make 'gitpush' script executable for Bun__
 
-```chmod +x ./scripts/gitpush.sh```
+
+```bash
+chmod +x ./scripts/gitpush.sh
+```
 
 __Push to Github with Bun__
 
-```bun run push```
+
+```bash
+bun run push
+```
 
 <br>
 
