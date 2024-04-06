@@ -10,7 +10,8 @@ const appName = useAppConfig().app.name;
         <span>{{ appName }}</span>
       </div>
       <div class="append">
-        <AppNavigation />
+        <AppNavigation class="mr-2" />
+        <AppDialogLogin />
       </div>
       <slot name="drawer-button" />
     </div>
