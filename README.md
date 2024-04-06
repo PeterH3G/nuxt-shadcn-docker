@@ -1,4 +1,4 @@
-# nuxt-shadcn-base
+# nuxt-shadcn-bun
 
 ## Build with [Bun.sh](https://bun.sh)
 
@@ -44,6 +44,22 @@ Docker Server: [localhost:8080](http://localhost:8080)
 
 ```bash
 bun run docker-build
+```
+
+<br><br>
+
+## Scripts
+
+### Make script 'gitpush' executable for Bun
+
+```bash
+chmod +x ./scripts/gitpush.sh
+```
+
+### Push to Github with Bun
+
+```bash
+bun run push
 ```
 
 <br><br>
