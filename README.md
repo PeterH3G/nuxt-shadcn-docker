@@ -48,9 +48,9 @@ bun run docker-build
 
 <br><br>
 
-## Scripts
+## Development Scripts
 
-### Make script 'gitpush' executable for Bun
+### Make 'gitpush' script executable for Bun
 
 ```bash
 chmod +x ./scripts/gitpush.sh
