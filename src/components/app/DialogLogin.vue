@@ -10,6 +10,7 @@ const icon = {
   username: "mdi:account",
   submit: "mdi:send",
 };
+const iconOnly = ref(true);
 
 // DIALOG SETTINGS
 const dialog = <any>{
@@ -31,9 +32,9 @@ const dialog = <any>{
   footer: {
     button: {
       icon: icon.submit,
-      text: 'Submit'
-    }
-  }
+      text: "Submit",
+    },
+  },
 };
 
 // FORM SETTINGS
@@ -56,7 +57,10 @@ const onSubmit = form.handleSubmit((values) => {
       <DialogTrigger>
         <Button :variant="dialog.trigger.button.variant">
           <Icon :icon="dialog.trigger.button.icon" />
-          <span v-text="dialog.trigger.button.text" />
+          <span
+            :class="iconOnly ? `sr-only` : ``"
+            v-text="dialog.trigger.button.text"
+          />
         </Button>
       </DialogTrigger>
 

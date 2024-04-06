@@ -3,32 +3,33 @@ import { Icon } from "@iconify/vue";
 
 const routes = useNuxtApp().$sortedRoutes;
 
+// ICON SETTINGS
 const icon = {
   trigger: "mdi:menu",
   title: "mdi:account",
   cancel: "mdi:cancel",
 };
+const iconOnly = ref(true);
 
-const config = {
-  drawerTrigger: {
+// DRAWER SETTINGS
+const drawer = <any>{
+  trigger: {
     icon: icon.trigger,
     text: "Menu",
   },
-  drawerTitle: {
+  title: {
     icon: icon.title,
     text: "User Menu",
   },
-  drawerDescription: {
+  description: {
     text: "Your navigations & settings",
   },
-  drawerClose: {
+  close: {
     icon: icon.cancel,
     variant: "outline",
     text: "Cancel",
   },
 };
-
-const showTriggerText = ref(false);
 const isOpen = ref(false);
 </script>
 
@@ -37,18 +38,18 @@ const isOpen = ref(false);
     <Drawer v-model:open="isOpen">
       <DrawerTrigger as-child>
         <Button variant="outline">
-          <Icon :icon="config.drawerTrigger.icon" />
-          <span v-text="config.drawerTrigger.text" />
+          <Icon :icon="drawer.trigger.icon" />
+          <span v-if="!iconOnly" v-text="drawer.trigger.text" />
         </Button>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader class="drawer-header">
           <DrawerTitle class="drawer-title">
-            <Icon :icon="config.drawerTitle.icon" />
-            <span v-text="config.drawerTitle.text" />
+            <Icon :icon="drawer.title.icon" />
+            <span v-text="drawer.title.text" />
           </DrawerTitle>
           <DrawerDescription>
-            {{ config.drawerDescription.text }}
+            {{ drawer.description.text }}
           </DrawerDescription>
         </DrawerHeader>
 

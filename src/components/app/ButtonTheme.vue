@@ -1,75 +1,61 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 
+// ICON SETTINGS
 const icon = {
   menu: "mdi:account",
-  dark: "mdi:moon-and-stars",
+  dark: "mdi:weather-night",
   light: "mdi:weather-sunny",
-  system: "mdi:computer-classic",
+  system: "mdi:desktop-classic",
+};
+const iconOnly = ref(true);
+
+// DROPDOWN SETTINGS
+const triggerButton = <any>{
+  variant: "outline",
+  text: "Theme",
 };
 
-const config = <any>{
-  menuButton: {
-    variant: "outline",
-    text: "Toggle theme",
-  },
-  menuLabel: {
-    show: true,
+const dropdown = <any>{
+  label: {
     text: "Theme Options",
   },
-  menuItems: [
+  items: [
     { text: "Light", preference: "light", icon: icon.light },
     { text: "Dark", preference: "dark", icon: icon.dark },
     { text: "System", preference: "system", icon: icon.system },
   ],
 };
 
+// THEME SETTINGS
 const colorMode = useColorMode();
+const useQuickSwitch = ref(true);
 const quickSwitch = () => {
   colorMode.preference = colorMode.preference === "dark" ? "light" : "dark";
 };
-const useQuickSwitch = ref(true);
 </script>
 
 <template>
-  <client-only>
-    <Button
-      v-if="useQuickSwitch"
-      @click="quickSwitch()"
-      :variant="config.menuButton.variant"
-    >
-      <Icon
-        :icon="icon.dark"
-        class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
-      />
-      <Icon
-        :icon="icon.light"
-        class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
-      />
-      <span class="sr-only">{{ config.menuButton.text }}</span>
-    </Button>
-
-    <DropdownMenu v-if="!useQuickSwitch">
+  <clientOnly>
+    <DropdownMenu>
       <DropdownMenuTrigger as-child>
-        <Button :variant="config.menuButton.variant">
-          <Icon
-            :icon="icon.dark"
-            class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+        <Button
+          @click="useQuickSwitch ? quickSwitch() : null"
+          :variant="triggerButton.variant"
+          class="flex justify-between items-center"
+        >
+          <Icon :icon="icon.light" class="icon-light" />
+          <Icon :icon="icon.dark" class="icon-dark" />
+          <span
+            :class="iconOnly ? `sr-only` : ``"
+            v-text="triggerButton.text"
           />
-          <Icon
-            :icon="icon.light"
-            class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
-          />
-          <span class="sr-only">{{ config.menuButton.text }}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuLabel
-          v-if="config.menuLabel.show"
-          v-text="config.menuLabel.text"
-        />
+      <DropdownMenuContent v-if="useQuickSwitch ? false : true" align="end">
+        <DropdownMenuLabel v-text="dropdown.label.text" />
         <DropdownMenuItem
-          v-for="(item, i) in config.menuItems"
+          v-for="(item, i) in dropdown.items"
           :key="i"
           @click="colorMode.preference = item.preference"
         >
@@ -78,5 +64,14 @@ const useQuickSwitch = ref(true);
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  </client-only>
+  </clientOnly>
 </template>
+
+<style scoped>
+.icon-dark {
+  @apply h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0;
+}
+.icon-light {
+  @apply absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100;
+}
+</style>

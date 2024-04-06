@@ -18,8 +18,8 @@ const appSubtitle = useAppConfig().app.repository;
       </div>
       <div class="append">
         <AppNavigation class="mr-2" />
-        <AppButtonTheme />
         <AppButtonDeveloper />
+        <AppButtonTheme />
         <AppDialogLogin />
       </div>
       <AppButtonDrawer />
