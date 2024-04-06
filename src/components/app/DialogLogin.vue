@@ -4,33 +4,47 @@ import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import * as z from "zod";
 
+// ICON SETTINGS
 const icon = {
-  menu: "mdi:login",
+  trigger: "mdi:login",
+  username: "mdi:account",
+  submit: "mdi:send",
 };
 
-const config = <any>{
-  dialogButton: {
-    variant: "outline",
-    text: "Toggle theme",
+// DIALOG SETTINGS
+const dialog = <any>{
+  trigger: {
+    button: {
+      icon: icon.trigger,
+      variant: "outline",
+      text: "Login",
+    },
   },
-  dialogTitle: "Login",
-  dialogDescription: "You can login here",
+  title: {
+    icon: icon.trigger,
+    text: "Login",
+  },
+  description: "You can login here",
   menuLabel: {
-    show: true,
-    text: "Theme Options",
+    text: "Login",
   },
+  footer: {
+    button: {
+      icon: icon.submit,
+      text: 'Submit'
+    }
+  }
 };
 
+// FORM SETTINGS
 const formSchema = toTypedSchema(
   z.object({
     username: z.string().min(2).max(50),
   })
 );
-
 const form = useForm({
   validationSchema: formSchema,
 });
-
 const onSubmit = form.handleSubmit((values) => {
   console.log("Form submitted!", values);
 });
@@ -40,24 +54,28 @@ const onSubmit = form.handleSubmit((values) => {
   <client-only>
     <Dialog>
       <DialogTrigger>
-        <Button :variant="config.dialogButton.variant">
-          <Icon :icon="icon.menu" />
+        <Button :variant="dialog.trigger.button.variant">
+          <Icon :icon="dialog.trigger.button.icon" />
+          <span v-text="dialog.trigger.button.text" />
         </Button>
       </DialogTrigger>
 
       <DialogContent class="dark:border-card dark:bg-card">
         <DialogHeader>
           <DialogTitle class="flex justify-start items-center">
-            <Icon :icon="icon.menu" />
-            <span v-text="config.dialogTitle" />
+            <Icon :icon="dialog.title.icon" />
+            <span v-text="dialog.title.text" />
           </DialogTitle>
-          <DialogDescription v-text="config.dialogDescription" />
+          <DialogDescription v-text="dialog.dialogDescription" />
         </DialogHeader>
 
         <form @submit="onSubmit">
           <FormField v-slot="{ componentField }" name="username">
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel class="form-label">
+                <Icon :icon="icon.username" />
+                <strong v-text="`Username`" />
+              </FormLabel>
               <FormControl>
                 <Input
                   type="text"
@@ -74,7 +92,9 @@ const onSubmit = form.handleSubmit((values) => {
 
           <DialogFooter>
             <Button type="submit">
-              <Icon :icon="icon.menu" />{{ config.buttonText }}</Button
+              <Icon :icon="dialog.footer.button.icon" />{{
+                dialog.footer.button.text
+              }}</Button
             >
           </DialogFooter>
         </form>
@@ -83,32 +103,8 @@ const onSubmit = form.handleSubmit((values) => {
   </client-only>
 </template>
 
-<style>
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-.DialogOverlay[data-state="open"],
-.DialogContent[data-state="open"] {
-  animation: fadeIn 4000ms ease-out;
-}
-
-.DialogOverlay[data-state="closed"],
-.DialogContent[data-state="closed"] {
-  animation: fadeOut 4000ms ease-in;
+<style scoped>
+.form-label {
+  @apply flex justify-start items-center;
 }
 </style>

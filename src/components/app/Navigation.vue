@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 import { storeToRefs } from "pinia";
-const { authenticated } = storeToRefs(useAuthStore());  
+const { authenticated } = storeToRefs(useAuthStore());
 const routes = useNuxtApp().$sortedRoutes;
 const icon = {
-  test: 'mdi:book-open-page-variant',
-}
+  test: "mdi:book-open-page-variant",
+};
 </script>
 
 <template>
@@ -32,3 +32,9 @@ const icon = {
     </NavigationMenuList>
   </NavigationMenu>
 </template>
+
+<style scoped>
+.router-link-active.router-link-exact-active button {
+  @apply bg-muted text-muted-foreground;
+}
+</style>

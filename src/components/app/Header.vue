@@ -22,7 +22,7 @@ const appSubtitle = useAppConfig().app.repository;
         <AppButtonDeveloper />
         <AppDialogLogin />
       </div>
-      <slot name="drawer-button" />
+      <AppButtonDrawer />
     </div>
   </header>
 </template>

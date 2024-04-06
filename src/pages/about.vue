@@ -1,6 +1,7 @@
 <script setup lang="ts">
 definePageMeta({
   name: "About",
+  icon: 'mdi:account-details',
   order: 1,
 });
 </script>

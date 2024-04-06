@@ -25,6 +25,11 @@ body,
 #__nuxt {
   width: 100%;
   height: 100%;
+  min-height: 100%;
+}
+
+body {
+  bottom: 0; /** fixes grid/drawer positioning */
 }
 
 .layout-enter-active,

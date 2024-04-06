@@ -1,22 +1,25 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 
+const routes = useNuxtApp().$sortedRoutes;
+
 const icon = {
-  trigger: "mdi:account-cog",
+  trigger: "mdi:menu",
+  title: "mdi:account",
   cancel: "mdi:cancel",
 };
 
 const config = {
   drawerTrigger: {
     icon: icon.trigger,
-    text: "Developer",
+    text: "Menu",
   },
   drawerTitle: {
-    icon: icon.trigger,
-    text: "Developer Menu",
+    icon: icon.title,
+    text: "User Menu",
   },
   drawerDescription: {
-    text: "Developer navigations & settings",
+    text: "Your navigations & settings",
   },
   drawerClose: {
     icon: icon.cancel,
@@ -25,6 +28,7 @@ const config = {
   },
 };
 
+const showTriggerText = ref(false);
 const isOpen = ref(false);
 </script>
 
@@ -34,7 +38,7 @@ const isOpen = ref(false);
       <DrawerTrigger as-child>
         <Button variant="outline">
           <Icon :icon="config.drawerTrigger.icon" />
-          {{ config.drawerTrigger.text }}
+          <span v-text="config.drawerTrigger.text" />
         </Button>
       </DrawerTrigger>
       <DrawerContent>
@@ -47,13 +51,21 @@ const isOpen = ref(false);
             {{ config.drawerDescription.text }}
           </DrawerDescription>
         </DrawerHeader>
+
+        <NuxtLink
+          class="drawer-links"
+          v-for="(item, i) in routes"
+          :key="i"
+          :to="item.path"
+        >
+          <Button @click="isOpen = !isOpen" class="buttons">
+            <Icon :icon="<string>item.meta?.icon" />
+            <span v-text="item.meta?.name" />
+          </Button>
+        </NuxtLink>
+
         <DrawerFooter class="pt-2">
-          <DrawerClose as-child>
-            <Button class="drawer-cancel" :variant="config.drawerClose.variant">
-              <Icon :icon="config.drawerClose.icon" />
-              <span v-text="config.drawerClose.text" />
-            </Button>
-          </DrawerClose>
+          <AppFooter />
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
@@ -64,9 +76,14 @@ const isOpen = ref(false);
 .drawer-header {
   @apply flex flex-col justify-start items-center;
 }
-
 .drawer-title {
   @apply inline-flex justify-start items-center;
+}
+.drawer-links {
+  @apply flex;
+}
+.drawer-links .buttons {
+  @apply flex w-full rounded-none uppercase;
 }
 .drawer-cancel {
   @apply inline-flex justify-center items-center;

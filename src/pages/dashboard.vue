@@ -1,6 +1,7 @@
 <script setup lang="ts">
 definePageMeta({
   name: "Dashboard",
+  icon: 'mdi:view-dashboard',
   middleware: "auth",
   order: 1,
 });

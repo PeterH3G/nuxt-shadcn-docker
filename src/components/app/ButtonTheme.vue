@@ -28,7 +28,7 @@ const colorMode = useColorMode();
 const quickSwitch = () => {
   colorMode.preference = colorMode.preference === "dark" ? "light" : "dark";
 };
-const useQuickSwitch = ref(false);
+const useQuickSwitch = ref(true);
 </script>
 
 <template>

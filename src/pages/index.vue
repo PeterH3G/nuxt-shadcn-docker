@@ -1,6 +1,7 @@
 <script setup lang="ts">
 definePageMeta({
   name: "Home",
+  icon: 'mdi:home',
   order: 0,
 });
 
