@@ -1,7 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="page">
-    <Card> index </Card>
-  </div>
+  <Card class="page container bg-card"> Home </Card>
 </template>

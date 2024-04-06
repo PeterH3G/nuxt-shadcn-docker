@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     layoutTransition: { name: "layout", mode: "out-in" },
     pageTransition: { name: "page", mode: "out-in" },
   },
-
+  
   devtools: { enabled: true },
 
   experimental: {
@@ -42,10 +42,9 @@ export default defineNuxtConfig({
   postcss: {
     plugins: {
       autoprefixer: {},
-      "postcss-simple-vars": {},
       tailwindcss: {},
     },
   },
 
-  srcDir: 'src/',
+  srcDir: "src/",
 });
