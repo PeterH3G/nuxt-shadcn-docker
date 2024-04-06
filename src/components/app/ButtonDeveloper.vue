@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 
+defineProps<{
+  inHeader?: boolean;
+  inDrawer?: boolean;
+}>();
+
 // ICON SETTINGS
 const icon = {
   trigger: "mdi:tools",
@@ -34,9 +39,12 @@ const isOpen = ref(false);
   <ClientOnly>
     <Drawer v-model:open="isOpen">
       <DrawerTrigger as-child>
-        <Button variant="outline">
+        <Button class="trigger-button" variant="outline">
           <Icon :icon="drawer.trigger.icon" />
-          <span v-if="!iconOnly" v-text="drawer.trigger.text" />
+          <span
+            v-text="drawer.trigger.text"
+            :class="iconOnly && inHeader ? `sr-only` : ``"
+          />
         </Button>
       </DrawerTrigger>
       <DrawerContent>
@@ -63,6 +71,9 @@ const isOpen = ref(false);
 </template>
 
 <style scoped>
+.trigger-button {
+  @apply w-full flex justify-start items-center;
+}
 .drawer-header {
   @apply flex flex-col justify-start items-center;
 }

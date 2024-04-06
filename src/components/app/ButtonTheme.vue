@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 
+defineProps<{
+  inHeader?: boolean;
+  inDrawer?: boolean;
+}>();
+
 // ICON SETTINGS
 const icon = {
   menu: "mdi:account",
@@ -42,12 +47,12 @@ const quickSwitch = () => {
         <Button
           @click="useQuickSwitch ? quickSwitch() : null"
           :variant="triggerButton.variant"
-          class="flex justify-between items-center"
+          class="trigger-button"
         >
           <Icon :icon="icon.light" class="icon-light" />
           <Icon :icon="icon.dark" class="icon-dark" />
           <span
-            :class="iconOnly ? `sr-only` : ``"
+            :class="iconOnly && inHeader ? `sr-only` : ``"
             v-text="triggerButton.text"
           />
         </Button>
@@ -68,6 +73,9 @@ const quickSwitch = () => {
 </template>
 
 <style scoped>
+.trigger-button {
+  @apply w-full flex justify-start items-center;
+}
 .icon-dark {
   @apply h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0;
 }

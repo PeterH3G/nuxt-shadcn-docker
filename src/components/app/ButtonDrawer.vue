@@ -19,10 +19,10 @@ const drawer = <any>{
   },
   title: {
     icon: icon.title,
-    text: "User Menu",
+    text: "Menu",
   },
   description: {
-    text: "Your navigations & settings",
+    text: "Navigations & Settings",
   },
   close: {
     icon: icon.cancel,
@@ -37,7 +37,7 @@ const isOpen = ref(false);
   <ClientOnly>
     <Drawer v-model:open="isOpen">
       <DrawerTrigger as-child>
-        <Button variant="outline">
+        <Button class="flex sm:hidden" variant="outline">
           <Icon :icon="drawer.trigger.icon" />
           <span v-if="!iconOnly" v-text="drawer.trigger.text" />
         </Button>
@@ -54,16 +54,21 @@ const isOpen = ref(false);
         </DrawerHeader>
 
         <NuxtLink
-          class="drawer-links"
           v-for="(item, i) in routes"
           :key="i"
+          class="drawer-links"
           :to="item.path"
         >
-          <Button @click="isOpen = !isOpen" class="buttons">
+          <Button v-if="!item.meta?.middleware" @click="isOpen = !isOpen">
             <Icon :icon="<string>item.meta?.icon" />
             <span v-text="item.meta?.name" />
           </Button>
         </NuxtLink>
+
+        <div class="options">
+          <AppButtonDeveloper inDrawer />
+          <AppButtonTheme inDrawer />
+        </div>
 
         <DrawerFooter class="pt-2">
           <AppFooter />
@@ -74,19 +79,26 @@ const isOpen = ref(false);
 </template>
 
 <style scoped>
+.options {
+  @apply grid grid-cols-2 grid-flow-row gap-4;
+  @apply pt-4 mx-4;
+}
+
 .drawer-header {
   @apply flex flex-col justify-start items-center;
 }
 .drawer-title {
   @apply inline-flex justify-start items-center;
 }
+
+/** Router Link Settings */
 .drawer-links {
   @apply flex;
 }
-.drawer-links .buttons {
-  @apply flex w-full rounded-none uppercase;
+.drawer-links button {
+  @apply flex w-full rounded-none uppercase bg-muted text-muted-foreground;
 }
-.drawer-cancel {
-  @apply inline-flex justify-center items-center;
+.router-link-active.router-link-exact-active button {
+  @apply bg-primary text-primary-foreground;
 }
 </style>

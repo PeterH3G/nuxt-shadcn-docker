@@ -18,9 +18,8 @@ const appSubtitle = useAppConfig().app.repository;
       </div>
       <div class="append">
         <AppNavigation class="mr-2" />
-        <AppButtonDeveloper />
-        <AppButtonTheme />
-        <AppDialogLogin />
+        <AppButtonDeveloper inHeader />
+        <AppButtonTheme inHeader />
       </div>
       <AppButtonDrawer />
     </div>
@@ -38,7 +37,7 @@ const appSubtitle = useAppConfig().app.repository;
 }
 .container.header .append {
   @apply w-full hidden;
-  @apply md:flex justify-end items-center;
+  @apply sm:flex justify-end items-center;
 }
 
 /* Header elements */
