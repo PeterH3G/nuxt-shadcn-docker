@@ -18,7 +18,7 @@ const iconOnly = ref(true);
 // DROPDOWN SETTINGS
 const triggerButton = <any>{
   variant: "outline",
-  text: "Theme",
+  text: "Theme switch",
 };
 
 const dropdown = <any>{
@@ -52,8 +52,10 @@ const quickSwitch = () => {
           <Icon :icon="icon.light" class="icon-light" />
           <Icon :icon="icon.dark" class="icon-dark" />
           <span
-            :class="iconOnly && inHeader ? `sr-only` : ``"
-            v-text="triggerButton.text"
+            class="trigger-text"
+            v-text="
+              !iconOnly && inHeader ? triggerButton.text : triggerButton.text
+            "
           />
         </Button>
       </DropdownMenuTrigger>
@@ -74,7 +76,10 @@ const quickSwitch = () => {
 
 <style scoped>
 .trigger-button {
-  @apply w-full flex justify-start items-center;
+  @apply inline-flex justify-start items-center;
+}
+.trigger-text {
+  @apply flex;
 }
 .icon-dark {
   @apply h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0;

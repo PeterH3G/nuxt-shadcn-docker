@@ -35,11 +35,11 @@ const drawer = <any>{
 const isOpen = ref(false);
 
 // DATA SETTINGS
-const { pending, data: developer } = await useLazyFetch('/api/developer')
+const { pending, data: developer } = await useLazyFetch("/api/developer");
 watch(developer, (newDeveloper) => {
   // Because posts might start out null, you won't have access
   // to its contents immediately, but you can watch it.
-})
+});
 </script>
 
 <template>
@@ -49,8 +49,9 @@ watch(developer, (newDeveloper) => {
         <Button class="trigger-button" variant="outline">
           <Icon :icon="drawer.trigger.icon" />
           <span
-            v-text="drawer.trigger.text"
-            :class="iconOnly && inHeader ? `sr-only` : ``"
+            v-text="
+              !iconOnly && inHeader ? drawer.trigger.text : drawer.trigger.text
+            "
           />
         </Button>
       </DrawerTrigger>
@@ -82,8 +83,9 @@ watch(developer, (newDeveloper) => {
 
 <style scoped>
 .trigger-button {
-  @apply w-full flex justify-start items-center;
+  @apply inline-flex justify-start items-center;
 }
+
 .drawer-header {
   @apply flex flex-col justify-start items-center;
 }

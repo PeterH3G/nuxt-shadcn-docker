@@ -79,11 +79,7 @@ const isOpen = ref(false);
 </template>
 
 <style scoped>
-.options {
-  @apply grid grid-cols-2 grid-flow-row gap-4;
-  @apply pt-4 mx-4;
-}
-
+/** Component elements */
 .drawer-header {
   @apply flex flex-col justify-start items-center;
 }
@@ -100,5 +96,11 @@ const isOpen = ref(false);
 }
 .router-link-active.router-link-exact-active button {
   @apply bg-primary text-primary-foreground;
+}
+
+/** Options settings */
+.options {
+  @apply grid grid-cols-2 grid-flow-row gap-4;
+  @apply py-4 mx-4;
 }
 </style>

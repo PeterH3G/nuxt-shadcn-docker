@@ -28,6 +28,7 @@ const maxWidth = useAppConfig().layout.maxWidth;
   @apply rounded-full text-2xl;
 }
 
+/* Layout Dialogs & Dropdowns */
 
 /* Dialogs and popovers */
 @keyframes fadeIn {
@@ -42,17 +43,15 @@ const maxWidth = useAppConfig().layout.maxWidth;
   from {
     opacity: 1;
   }
-  
+
   to {
     opacity: 0;
   }
 }
-
 .DialogOverlay[data-state="open"],
 .DialogContent[data-state="open"] {
   animation: fadeIn 4000ms ease-out;
 }
-
 .DialogOverlay[data-state="closed"],
 .DialogContent[data-state="closed"] {
   animation: fadeOut 4000ms ease-in;
