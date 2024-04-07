@@ -1,7 +1,16 @@
 export default defineEventHandler(async (event) => {
+  const ClientOnlys = ["FormLogin"];
+
   return {
     messages: {
-      hello: "from api/developer",
+      hello: "Hello from api/developer",
     },
+    notes: [
+      {
+        title: `<ClientOnly>`,
+        description: "Applied to components",
+        components: ClientOnlys,
+      },
+    ],
   };
 });

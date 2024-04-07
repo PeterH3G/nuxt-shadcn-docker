@@ -15,7 +15,8 @@ watch(data, (newData) => {
 
 <template>
   <Page>
-    <template #card-content>
+    <template #content-prepend> Content </template>
+    <template #content-append>
       <PagePre :data="data" />
     </template>
   </Page>

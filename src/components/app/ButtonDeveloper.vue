@@ -35,8 +35,8 @@ const drawer = <any>{
 const isOpen = ref(false);
 
 // DATA SETTINGS
-const { pending, data: developer } = await useLazyFetch("/api/developer");
-watch(developer, (newDeveloper) => {
+const { pending, data } = await useLazyFetch("/api/developer");
+watch(data, (newData) => {
   // Because posts might start out null, you won't have access
   // to its contents immediately, but you can watch it.
 });
@@ -46,14 +46,14 @@ watch(developer, (newDeveloper) => {
   <ClientOnly>
     <Drawer v-model:open="isOpen">
       <DrawerTrigger as-child>
-        <Button class="trigger-button" variant="outline">
+        <Button class="trigger" variant="outline">
           <Icon :icon="drawer.trigger.icon" />
           <span v-text="iconOnly && inHeader ? null : drawer.trigger.text" />
         </Button>
       </DrawerTrigger>
       <DrawerContent>
-        <DrawerHeader class="drawer-header">
-          <DrawerTitle class="drawer-title">
+        <DrawerHeader class="header">
+          <DrawerTitle class="title">
             <Icon :icon="drawer.title.icon" />
             <span v-text="drawer.title.text" />
           </DrawerTitle>
@@ -62,11 +62,23 @@ watch(developer, (newDeveloper) => {
           </DrawerDescription>
         </DrawerHeader>
 
-        <pre v-text="developer" />
+        <div class="content">
+          <div class="prepend">
+            <h1 v-text="data?.messages.hello" />
+            <template v-for="(item, i) in data?.notes" :key="i">
+              <h2>{{ item.title }}</h2>
+              <span v-text="item.description" />
+              <p v-text="item.components" />
+            </template>
+          </div>
+          <div class="append">
+            <PagePre :data="data" />
+          </div>
+        </div>
 
         <DrawerFooter class="pt-2">
           <DrawerClose as-child>
-            <Button class="drawer-cancel" :variant="drawer.close.variant">
+            <Button class="cancel" :variant="drawer.close.variant">
               <Icon :icon="drawer.close.icon" />
               <span v-text="drawer.close.text" />
             </Button>
@@ -78,18 +90,31 @@ watch(developer, (newDeveloper) => {
 </template>
 
 <style scoped>
-.trigger-button {
+button.trigger {
   @apply inline-flex justify-start items-center;
 }
 
-.drawer-header {
+.header {
   @apply flex flex-col justify-start items-center;
 }
 
-.drawer-title {
+.title {
   @apply inline-flex justify-start items-center;
 }
-.drawer-cancel {
+
+.content {
+  @apply grid grid-cols-2 gap-4;
+  @apply px-4;
+}
+.content .prepend,
+.content .append {
+  @apply rounded-md p-4;
+}
+.content .append {
+  @apply bg-muted text-muted-foreground;
+}
+
+button.cancel {
   @apply inline-flex justify-center items-center;
 }
 </style>

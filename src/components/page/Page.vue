@@ -15,14 +15,20 @@ const page = {
       </CardTitle>
       <CardDescription  class="description">Card Description</CardDescription>
     </CardHeader>
-    <CardContent  class="content">
-      <slot name="card-content" />
+    <CardContent  class="content">      
+          <div class="prepend">  
+      <slot name="content-prepend" />
+          </div>
+          <div class="append">
+      <slot name="content-append" />
+          </div>
     </CardContent>
     <CardFooter  v-if="page.showFooter"  class="footer"> Card Footer </CardFooter>
   </Card>
 </template>
 
 <style scoped>
+/** Page Card Components */
 .page {
     @apply bg-card text-card-foreground;
 }
@@ -36,9 +42,20 @@ const page = {
     @apply flex justify-start items-center;
 }
 .content {
-    @apply flex justify-center items-center;
+  @apply grid grid-cols-2 gap-4;
+  @apply px-4;
 }
 .footer {
     @apply flex justify-center items-center;
+}
+
+/**  Custom Classes */
+.content .prepend,
+.content .append {
+  @apply rounded-md;
+  @apply flex flex-col;
+}
+.content .append {
+  @apply bg-muted text-muted-foreground;
 }
 </style>

@@ -30,29 +30,35 @@ const onSubmit = form.handleSubmit((values) => {
 </script>
 
 <template>
-  <form @submit="onSubmit">
-    <FormField v-slot="{ componentField }" name="username">
-      <FormItem>
-        <FormLabel class="form-label">
-          <Icon :icon="icon.username" />
-          <strong v-text="`Username`" />
-        </FormLabel>
-        <FormControl>
-          <Input type="text" placeholder="shadcn" v-bind="componentField" />
-        </FormControl>
-        <FormDescription> This is your public display name. </FormDescription>
-        <FormMessage />
-      </FormItem>
-    </FormField>
-    <Button type="submit">
-      <Icon :icon="icon.submit" />
-      <span v-text="submit.text" />
-    </Button>
-  </form>
+  <ClientOnly>
+    <form @submit="onSubmit">
+      <FormField v-slot="{ componentField }" name="username">
+        <FormItem>
+          <FormLabel class="form-label">
+            <Icon :icon="icon.username" />
+            <strong v-text="`Username`" />
+          </FormLabel>
+          <FormControl>
+            <Input type="text" placeholder="shadcn" v-bind="componentField" />
+          </FormControl>
+          <FormDescription> This is your public display name. </FormDescription>
+          <FormMessage />
+        </FormItem>
+      </FormField>
+      <Button type="submit">
+        <Icon :icon="icon.submit" />
+        <span v-text="submit.text" />
+      </Button>
+    </form>
+  </ClientOnly>
 </template>
 
 <style scoped>
 form {
-  @apply flex flex-col justify-start items-center;
+  @apply grid grid-rows-[1fr_auto];
+  @apply h-full gap-4;
+}
+.form-label {
+  @apply flex justify-start items-center;
 }
 </style>

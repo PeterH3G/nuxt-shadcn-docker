@@ -1,18 +1,20 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
     data?: any;
 }>()
+
+const pre = reactive({
+  data: props.data ? props.data : 'No data',
+});
 </script>
 
 <template>
-  <pre class="page">
-    {{ data ? data  : 'No Data' }}
-  </pre>
+  <pre v-text="pre" />
 </template>
 
 <style scoped>
-pre.page {
+pre {
+  @apply text-green-500 text-xs;
   @apply p-4;
-  @apply bg-muted text-muted-foreground rounded-md;
 }
 </style>
