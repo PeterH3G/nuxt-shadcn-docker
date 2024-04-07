@@ -5,21 +5,17 @@ definePageMeta({
   order: 2,
 });
 
-// DATA SETTINGS
-const { pending, data } = await useLazyFetch("/api/pages/login");
-watch(data, (newData) => {
-  // Because posts might start out null, you won't have access
-  // to its contents immediately, but you can watch it.
-});
+// API SETTINGS
+const { data: api } = useFetch("/api/pages/login");
 </script>
 
 <template>
   <Page>
     <template #content-prepend>
-      <AppFormLogin />
+      <h1 v-text="api?.content.title" />
     </template>
     <template #content-append>
-      <PagePre :data="data" />
+      <PagePre :data="api" />
     </template>
   </Page>
 </template>

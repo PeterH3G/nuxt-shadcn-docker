@@ -1,7 +1,10 @@
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(() => {
   return {
     messages: {
-      hello: "from api/pages/home",
+      hello: "What's up?",
+    },
+    content: {
+      title: "Home api title",
     },
   };
 });
