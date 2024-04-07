@@ -11,8 +11,7 @@ const icon = {
   trigger: "mdi:tools",
   close: "mdi:cancel",
 };
-const iconOnly = useAppConfig().buttons.developer.iconOnly;
-
+const iconOnly = useAppConfig().buttons.global.iconOnly;
 // DRAWER SETTINGS
 const drawer = <any>{
   trigger: {
@@ -48,7 +47,10 @@ watch(data, (newData) => {
       <DrawerTrigger as-child>
         <Button class="trigger" variant="outline">
           <Icon :icon="drawer.trigger.icon" />
-          <span v-text="iconOnly && inHeader ? null : drawer.trigger.text" />
+          <span
+            v-if="iconOnly ? null : drawer.trigger.text"
+            v-text="inHeader ? drawer.trigger.text : null"
+          />
         </Button>
       </DrawerTrigger>
       <DrawerContent>
@@ -72,7 +74,7 @@ watch(data, (newData) => {
             </template>
           </div>
           <div class="append">
-            <PagePre :data="data" />
+            append
           </div>
         </div>
 

@@ -21,6 +21,7 @@ useHead({
 </template>
 
 <style>
+ /** Ensure full dimensions */
 html,
 body,
 #__nuxt {
@@ -29,10 +30,12 @@ body,
   min-height: 100%;
 }
 
+ /** Drid/Drawer positioning fix */
 body {
-  bottom: 0; /** fixes grid/drawer positioning */
+  bottom: 0;
 }
 
+/** Nuxt Router CSS */
 .layout-enter-active,
 .layout-leave-active {
   transition: all 0.4s;
@@ -50,5 +53,32 @@ body {
 .page-leave-to {
   opacity: 0;
   filter: blur(1rem);
+}
+
+/** Dialogs CSS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+.DialogOverlay[data-state="open"],
+.DialogContent[data-state="open"] {
+  animation: fadeIn 4000ms ease-out;
+}
+.DialogOverlay[data-state="closed"],
+.DialogContent[data-state="closed"] {
+  animation: fadeOut 4000ms ease-in;
 }
 </style>

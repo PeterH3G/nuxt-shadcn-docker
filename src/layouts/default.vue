@@ -13,7 +13,7 @@ const maxWidth = useAppConfig().layout.maxWidth;
 </template>
 
 <style>
-/* Centered content */
+/** Centered content */
 .layout header > :nth-child(1),
 .layout main > :nth-child(1),
 .layout footer > :nth-child(1) {
@@ -28,30 +28,30 @@ const maxWidth = useAppConfig().layout.maxWidth;
   @apply rounded-full text-2xl;
 }
 
-/* Dialogs and popovers */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+/** Global Page CSS */
+.page {
+  @apply bg-card text-card-foreground;
+  @apply flex flex-col h-full;
 }
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
+.page-header {
+  @apply grid grid-cols-2 items-center;
 }
-.DialogOverlay[data-state="open"],
-.DialogContent[data-state="open"] {
-  animation: fadeIn 4000ms ease-out;
+.page-title {
+  @apply inline-flex justify-start items-center;
 }
-.DialogOverlay[data-state="closed"],
-.DialogContent[data-state="closed"] {
-  animation: fadeOut 4000ms ease-in;
+.page-title .iconify {
+  @apply text-4xl mr-2;
+}
+.page-description {
+  @apply inline-flex justify-end items-center text-xs;
+}
+.page-description .iconify {
+  @apply text-4xl ml-2;
+}
+.page-content {
+  @apply flex flex-col h-full justify-start items-center;
+}
+.page-footer {
+  @apply flex justify-center items-center;
 }
 </style>

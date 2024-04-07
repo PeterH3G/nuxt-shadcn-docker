@@ -13,7 +13,7 @@ const icon = {
   light: "mdi:weather-sunny",
   system: "mdi:desktop-classic",
 };
-const iconOnly = useAppConfig().buttons.developer.iconOnly;
+const iconOnly = useAppConfig().buttons.global.iconOnly;
 
 // DROPDOWN SETTINGS
 const triggerButton = <any>{
@@ -22,6 +22,9 @@ const triggerButton = <any>{
 };
 
 const dropdown = <any>{
+  trigger: {
+    text: "Theme"
+  },
   label: {
     text: "Theme Options",
   },
@@ -52,10 +55,9 @@ const quickSwitch = () => {
           <Icon :icon="icon.light" class="icon-light" />
           <Icon :icon="icon.dark" class="icon-dark" />
           <span
+            v-if="iconOnly ? null : dropdown.trigger.text"
+            v-text="inHeader ? dropdown.trigger.text : null"
             class="trigger-text"
-            v-text="
-              !iconOnly && inHeader ? triggerButton.text : triggerButton.text
-            "
           />
         </Button>
       </DropdownMenuTrigger>

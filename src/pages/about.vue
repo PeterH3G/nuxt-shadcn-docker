@@ -5,7 +5,7 @@ definePageMeta({
   name: "About",
   icon: "mdi:account-details",
   order: 1,
-  slug: 'about',
+  slug: "about",
 });
 
 const { pending, data: api } = await useLazyAsyncData("about", () =>
@@ -16,23 +16,43 @@ watch(api, (newApi) => {
   // Might start out null, no access immediately,
   // but you can watch it.
 });
+
+const showFooter = ref(true);
 </script>
 
 <template>
-  <Page>
-    <template #page-title>
-      <Icon :icon="`${$route.meta.icon}`" />
-      <span v-text="`${$route.meta.name}`" />
-    </template>
-    <template #page-description>
-      <span v-text="api?.content.description" />
-      <Icon :icon="`${api?.content.descriptionIcon}`" />
-    </template>
+  <Card class="page">
+    <CardHeader class="page-header">
+      <CardTitle class="page-title">
+        <Icon :icon="`${$route.meta.icon}`" />
+        <span v-text="`${$route.meta.name}`" />
+      </CardTitle>
 
-    <template #content-prepend>
-      <h1 v-text="api?.content.title" />
-      <span v-text="api?.content.description" />
-    </template>
-    <template #content-append> <PagePre :data="api" /></template>
-  </Page>
+      <CardDescription class="page-description">
+        <span v-text="api?.content.description" />
+        <Icon :icon="`${api?.content.descriptionIcon}`" />
+      </CardDescription>
+    </CardHeader>
+
+    <CardContent class="page-content">
+      <div class="hero">
+        <h1 v-text="api?.content.title" />
+        <span v-text="api?.content.description" />
+      </div>
+    </CardContent>
+
+    <CardFooter class="page-footer">
+      <span v-if="showFooter">Card Footer</span>
+    </CardFooter>
+  </Card>
 </template>
+
+<style scoped>
+.page-content {
+  @apply grid grid-cols-1;
+  @apply justify-center items-start;
+}
+.hero {
+  @apply bg-muted p-2 sm:p-4;
+}
+</style>

@@ -2,7 +2,7 @@ export default defineEventHandler(() => {
   return {
     content: {
       title: "Hello Universe!",
-      description: "A nuxt-shadcn-bun project",
+      description: "nuxt-shadcn-bun",
       descriptionIcon: 'mdi:github',
     },
   };

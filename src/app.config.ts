@@ -11,6 +11,9 @@ export default defineAppConfig({
   },
 
   buttons: {
+    global: {
+      iconOnly: true,
+    },
     developer: {
       show: true,
       iconOnly: false,
