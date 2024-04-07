@@ -1,10 +1,9 @@
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(() => {
   return {
-    messages: {
-      hello: "What's up?",
-    },
     content: {
-      title: "About api title",
+      title: "Hello from About!",
+      description: "A nuxt-shadcn-bun project",
+      descriptionIcon: 'mdi:github',
     },
   };
 });

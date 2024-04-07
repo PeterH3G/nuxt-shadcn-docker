@@ -1,10 +1,9 @@
 export default defineEventHandler(() => {
   return {
-    messages: {
-      hello: "What's up?",
-    },
     content: {
-      title: "Home api title",
+      title: "Hello Universe!",
+      description: "A nuxt-shadcn-bun project",
+      descriptionIcon: 'mdi:github',
     },
   };
 });

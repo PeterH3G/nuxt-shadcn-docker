@@ -1,12 +1,13 @@
 <script setup lang="ts">
 const appName = useAppConfig().app.name;
+const appDescription = useAppConfig().app.description;
 
 useHead({
   title: appName,
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${appName}` : `${appName}`;
   },
-  meta: [{ name: "description", content: `${appName}` }],
+  meta: [{ name: "description", content: `${appDescription}` }],
   bodyAttrs: {
     class: `app`,
   },

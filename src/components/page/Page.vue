@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Icon } from "@iconify/vue";
-
 const page = {
   showFooter: false,
 };
@@ -10,19 +8,23 @@ const page = {
   <Card class="page">
     <CardHeader class="header">
       <CardTitle class="title">
-        <Icon :icon="`${$route.meta.icon}`" />
-        <span v-text="$route.meta.name" />
+        <slot name="page-title" />
       </CardTitle>
-      <CardDescription class="description">Card Description</CardDescription>
+      <CardDescription class="description">
+        <slot name="page-description" />
+      </CardDescription>
     </CardHeader>
+
     <CardContent class="content">
       <div class="prepend">
         <slot name="content-prepend" />
       </div>
+      <slot />
       <div class="append">
         <slot name="content-append" />
       </div>
     </CardContent>
+
     <CardFooter v-if="page.showFooter" class="footer"> Card Footer </CardFooter>
   </Card>
 </template>
@@ -33,17 +35,16 @@ const page = {
   @apply bg-card text-card-foreground;
 }
 .header {
-  @apply flex justify-center items-center;
+  @apply grid grid-cols-2;
 }
 .title {
-  @apply flex justify-start items-center;
+  @apply inline-flex justify-start items-center;
 }
 .description {
-  @apply flex justify-start items-center;
+  @apply inline-flex justify-end items-center;
 }
 .content {
   @apply grid grid-cols-2 gap-4;
-  @apply px-4;
 }
 .footer {
   @apply flex justify-center items-center;
@@ -54,6 +55,7 @@ const page = {
 .content .append {
   @apply rounded-md;
   @apply flex flex-col;
+  @apply p-4;
 }
 .content .append {
   @apply bg-muted text-muted-foreground;
