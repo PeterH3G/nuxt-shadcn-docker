@@ -34,7 +34,7 @@ bun run preview
 ## Production Application with [Docker](https://docker.com)
 
 __Start Docker Application__<br>
-Docker Server: [localhost:3080](http://localhost:3000)
+Docker Server: [localhost:3000](http://localhost:3000)
 
 
 ```bash
