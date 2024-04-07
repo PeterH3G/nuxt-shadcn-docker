@@ -44,26 +44,15 @@ const onSubmit = form.handleSubmit((values) => {
         <FormMessage />
       </FormItem>
     </FormField>
-    <div class="submit-box">
-      <strong v-text="`Push the button to login`" />
-      <Button type="submit">
-        <Icon :icon="icon.submit" />
-        <span v-text="submit.text" />
-      </Button>
-    </div>
+    <Button type="submit">
+      <Icon :icon="icon.submit" />
+      <span v-text="submit.text" />
+    </Button>
   </form>
 </template>
 
 <style scoped>
-.form-label {
-  @apply flex justify-start items-center;
-}
-.submit-box {
-  @apply flex flex-col w-full;
-}
-.submit-box button {
-  @apply flex w-full;
-  @apply bg-muted text-muted-foreground;
-  @apply hover:bg-primary hover:text-primary-foreground;
+form {
+  @apply flex flex-col justify-start items-center;
 }
 </style>

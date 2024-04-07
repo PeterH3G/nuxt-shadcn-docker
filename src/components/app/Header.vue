@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const appTitle = useAppConfig().app.name;
 const appSubtitle = useAppConfig().app.repository;
+const showButtonDeveloper = useAppConfig().buttons.developer.show;
 </script>
 
 <template>
@@ -18,7 +19,7 @@ const appSubtitle = useAppConfig().app.repository;
       </div>
       <div class="append">
         <AppNavigation class="mr-2" />
-        <AppButtonDeveloper inHeader />
+        <AppButtonDeveloper v-if="showButtonDeveloper" inHeader />
         <AppButtonTheme inHeader />
       </div>
       <AppButtonDrawer />

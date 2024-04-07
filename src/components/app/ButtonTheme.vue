@@ -13,7 +13,7 @@ const icon = {
   light: "mdi:weather-sunny",
   system: "mdi:desktop-classic",
 };
-const iconOnly = ref(true);
+const iconOnly = useAppConfig().buttons.developer.iconOnly;
 
 // DROPDOWN SETTINGS
 const triggerButton = <any>{

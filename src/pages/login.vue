@@ -14,19 +14,9 @@ watch(data, (newData) => {
 </script>
 
 <template>
-  <Card class="page container bg-card">
-    <pre v-text="data" class="api-box" />
-
-    <AppFormLogin class="app-login" />
-  </Card>
+  <Page>
+    <template #card-content>
+      <PagePre :data="data" />
+    </template>
+  </Page>
 </template>
-
-<style scoped>
-.api-box {
-  @apply p-4 bg-muted text-muted-foreground rounded-md;
-}
-.app-login {
-  @apply mt-6 mx-4;
-  @apply grid grid-rows-1 grid-cols-2 gap-4;
-}
-</style>

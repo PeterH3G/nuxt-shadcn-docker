@@ -9,7 +9,7 @@ const icon = {
   title: "mdi:account",
   cancel: "mdi:cancel",
 };
-const iconOnly = ref(true);
+const iconOnly = useAppConfig().buttons.drawer.iconOnly;
 
 // DRAWER SETTINGS
 const drawer = <any>{

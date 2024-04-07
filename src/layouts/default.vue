@@ -28,8 +28,6 @@ const maxWidth = useAppConfig().layout.maxWidth;
   @apply rounded-full text-2xl;
 }
 
-/* Layout Dialogs & Dropdowns */
-
 /* Dialogs and popovers */
 @keyframes fadeIn {
   from {

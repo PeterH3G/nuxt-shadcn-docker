@@ -11,7 +11,7 @@ const icon = {
   trigger: "mdi:tools",
   close: "mdi:cancel",
 };
-const iconOnly = ref(true);
+const iconOnly = useAppConfig().buttons.developer.iconOnly;
 
 // DRAWER SETTINGS
 const drawer = <any>{
@@ -48,11 +48,7 @@ watch(developer, (newDeveloper) => {
       <DrawerTrigger as-child>
         <Button class="trigger-button" variant="outline">
           <Icon :icon="drawer.trigger.icon" />
-          <span
-            v-text="
-              !iconOnly && inHeader ? drawer.trigger.text : drawer.trigger.text
-            "
-          />
+          <span v-text="iconOnly && inHeader ? null : drawer.trigger.text" />
         </Button>
       </DrawerTrigger>
       <DrawerContent>

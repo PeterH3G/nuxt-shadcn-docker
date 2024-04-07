@@ -14,7 +14,9 @@ watch(data, (newData) => {
 </script>
 
 <template>
-  <Card class="page container bg-card">
-    <pre v-text="data" class="p-4 bg-muted text-muted-foreground rounded-md" />
-  </Card>
+  <Page>
+    <template #card-content>
+      <PagePre :data="data" />
+    </template>
+  </Page>
 </template>
