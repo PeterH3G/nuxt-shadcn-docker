@@ -68,7 +68,7 @@ bun run push
 
 <br>
 
-## Setup Documentation
+## Project Documentation
 
 * <a href="https://bun.sh" target="_blank"><b>Bun</b>: Develop, test, run, and bundle JavaScript & TypeScript projects</a>
 * <a href="https://nuxt.com" target="_blank"><b>Nuxt 3</b>: The Intuitive Vue Framework</a>
