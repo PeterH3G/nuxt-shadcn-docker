@@ -8,13 +8,13 @@ __Install the dependencies__
 bash bun install 
 ```
 
-__Start Development Server__<br>
-Development server: [localhost:3000](http://localhost:3000)
-
-
+__Start Development Server__
 ```bash
 bun run dev
 ```
+Development server: [localhost:3000](http://localhost:3000)
+
+<br>
 
 __Build the application for production__
 
@@ -33,13 +33,15 @@ bun run preview
 
 ## Production Application with [Docker](https://docker.com)
 
-__Start Docker Application__<br>
-Docker Server: [localhost:3000](http://localhost:3000)
+__Start Docker Application__
 
 
 ```bash
 bun run docker
 ```
+Docker Server: [localhost:3000](http://localhost:3000)
+
+<br>
 
 __Build Docker Application__
 
