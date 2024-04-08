@@ -21,7 +21,7 @@ useHead({
 </template>
 
 <style>
- /** Ensure full dimensions */
+/** Ensure full dimensions */
 html,
 body,
 #__nuxt {
@@ -30,7 +30,7 @@ body,
   min-height: 100%;
 }
 
- /** Drid/Drawer positioning fix */
+/** Grid/Drawer positioning fix */
 body {
   bottom: 0;
 }
