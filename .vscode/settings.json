@@ -1,6 +1,24 @@
 {
+  // VS Code custom 
   "css.customData": [
     ".vscode/tailwind.json"
   ],
-  "CodeGPT.apiKey": "CodeGPT Plus Beta"
+  
+  // VS Code Assistants
+  "CodeGPT.apiKey": "CodeGPT Plus Beta",
+
+  // Hide directories and files
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.nuxt": true,
+    "**/bun.lockb": true,
+    "**/dist": true,
+    "**/tsconfig.json": true,
+  },
+
+  // VS Code Performance
+  "breadcrumbs.enabled": false,
+  "editor.codeLens": false, // enable when working in a team
+  "search.searchOnType": false,
+  "terminal.integrated.gpuAcceleration": "on"
 }

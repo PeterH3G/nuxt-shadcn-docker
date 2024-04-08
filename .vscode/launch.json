@@ -1,7 +1,7 @@
 {
   "configurations": [
     {
-      "type": "pwa-msedge",
+      "type": "msedge",
       "name": "Launch Microsoft Edge",
       "request": "launch",
       "runtimeArgs": [
@@ -13,7 +13,7 @@
       }
     },
     {
-      "type": "pwa-msedge",
+      "type": "msedge",
       "name": "Launch Microsoft Edge in headless mode",
       "request": "launch",
       "runtimeArgs": [
@@ -26,8 +26,8 @@
       }
     },
     {
-      "type": "vscode-edge-devtools.debug",
-      "name": "Open Edge DevTools",
+      "type": "chrome",
+      "name": "Open Chrome DevTools",
       "request": "attach",
       "url": "localhost",
       "presentation": {
@@ -40,14 +40,14 @@
       "name": "Launch Edge Headless and attach DevTools",
       "configurations": [
         "Launch Microsoft Edge in headless mode",
-        "Open Edge DevTools"
+        "Open Chrome DevTools"
       ]
     },
     {
       "name": "Launch Edge and attach DevTools",
       "configurations": [
         "Launch Microsoft Edge",
-        "Open Edge DevTools"
+        "Open Chrome DevTools"
       ]
     }
   ]
