@@ -10,20 +10,29 @@ const { pending, data: api } = await useLazyAsyncData("login", () =>
   $fetch("/api/pages/login")
 );
 
-watch(api, (newApi) => {
-  // Might start out null, no access immediately,
-  // but you can watch it.
-});
+watch(api, (newApi) => {});
 
-const showFooter = ref(true);
+const config = <any>{
+  hero: {
+    class: "grid grid-rows-[auto_1fr_auto]",
+    content: {
+      class: "grid grid-rows-[auto_auto] justify-center items-center",
+    },
+  },
+};
 </script>
 
 <template>
-  <PageHero :api="api?.hero">
-    <div class="grid grid-cols-1 justify-center items-start">
-      <h1 v-text="api?.hero.title" />
-      <span v-text="api?.hero.description" />
-      <PageLoginForm />
-    </div>
-  </PageHero>
+  <div class="container h-full sm:h-auto">
+    <PageHero :api="api?.hero" :class="config.hero.class">
+      <CardContent :class="config.hero.content.class">
+        <h1 class="text-xl text-center mb-4" v-text="api?.hero.content.title" />
+        <PageLoginForm />
+      </CardContent>
+
+      <CardFooter class="flex justify-start items-center text-xs">
+        footer
+      </CardFooter>
+    </PageHero>
+  </div>
 </template>

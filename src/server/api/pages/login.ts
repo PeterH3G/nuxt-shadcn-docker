@@ -1,9 +1,14 @@
 export default defineEventHandler(() => {
   return {
     hero: {
-      title: "Hello from Login!",
-      description: "nuxt-shadcn-bun",
-      descriptionIcon: "mdi:github",
+      attrs: {
+        class: "h-full grid",
+      },
+      content: {
+        title: "Login here",
+        description: "nuxt-shadcn-bun",
+        descriptionIcon: "mdi:github",
+      },
     },
   };
 });

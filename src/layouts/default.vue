@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const maxWidth = useAppConfig().layout.maxWidth;
+const maxWidth = useAppConfig().layout.default.maxWidth;
 </script>
 
 <template>

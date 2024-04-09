@@ -10,19 +10,21 @@ const { pending, data: api } = await useLazyAsyncData("home", () =>
   $fetch("/api/pages/home")
 );
 
-watch(api, (newApi) => {
-  // Might start out null, no access immediately,
-  // but you can watch it.
-});
+watch(api, (newApi) => {});
 
-const showFooter = ref(true);
+const showFooter = ref(false);
 </script>
 
 <template>
-  <PageHero :api="api?.hero">
-    <div class="grid grid-cols-1 justify-center items-start">
-      <h1 v-text="api?.hero.title" />
-      <span v-text="api?.hero.description" />
-    </div>
-  </PageHero>
+  <div class="container h-full sm:h-auto">
+    <PageHero :api="api?.hero">
+      <CardContent>
+        <h1 class="text-xl text-center mb-4" v-text="api?.hero.title" />
+      </CardContent>
+
+      <CardFooter class="flex justify-start items-center text-xs">
+        footer
+      </CardFooter>
+    </PageHero>
+  </div>
 </template>

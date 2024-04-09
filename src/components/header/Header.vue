@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const appTitle = useAppConfig().app.name;
-const appSubtitle = useAppConfig().app.repository;
+const appSubtitle = useAppConfig().app.description;
 
 // TAILWIND BINDINGS
 const tw = <any>{
@@ -21,7 +21,7 @@ const tw = <any>{
 
         <div class="flex flex-col">
           <strong v-text="appTitle" />
-          <span v-text="appSubtitle" />
+          <span class="text-xs" v-text="appSubtitle" />
         </div>
       </div>
       <div class="w-full hidden sm:flex justify-end items-center">

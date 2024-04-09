@@ -1,21 +1,25 @@
 export default defineAppConfig({
   app: {
     name: "PeterH3G",
-    description: "nuxt-shadcn-bun",
+    description: "Web Developer",
     repository: "nuxt-shadcn-bun",
   },
 
   layout: {
-    // Layout Positioning
-    isCentered: true, // false = maxWidth 100%
-    maxWidth: "800px", // layout.isCentered = true
+    // Default layout configuration
+    default: {
+      isCentered: true,
+      maxWidth: "800px", // if isCentered false
+    },
 
-    // Layout buttons
+    // Global component configurations
     global: {
       button: {
         iconOnly: true,
       },
     },
+
+    // Individual component configurations
     buttonDeveloper: {
       show: true,
       iconOnly: true,

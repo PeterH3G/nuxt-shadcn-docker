@@ -15,7 +15,7 @@ const tw = <any>{
     variant: "outline",
   },
   nuxtLinkButton: {
-    class: "rounded-none uppercase bg-muted text-muted-foreground",
+    class: "rounded-none uppercase",
   },
 };
 
@@ -64,11 +64,11 @@ const isOpen = ref(false);
           <Button
             v-if="!item.meta?.middleware"
             @click="isOpen = !isOpen"
-            class="flex w-full"
+            class="grid grid-cols-[auto_1fr] w-full h-16"
             v-bind="tw.nuxtLinkButton"
           >
-            <Icon :icon="<string>item.meta?.icon" />
-            <span v-text="item.meta?.name" />
+            <Icon :icon="`${item.meta?.icon}`" />
+            <span v-text="item.meta?.name" class="ml-2 text-left" />
           </Button>
         </NuxtLink>
 
