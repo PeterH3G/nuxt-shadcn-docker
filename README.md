@@ -1,6 +1,8 @@
 # nuxt-shadcn-docker
 
-## Build with [Bun.sh](https://bun.sh)
+A Nuxt 3-Shadcn setup for Docker deployment
+<br>
+Build with [Bun.sh](https://bun.sh)
 
 __Install the dependencies__
 
