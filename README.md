@@ -1,8 +1,26 @@
 # nuxt-shadcn-docker
 
-A Nuxt 3-Shadcn setup for Docker deployment
+A Nuxt 3-Shadcn setup for Docker deployment.
 <br>
-Build with [Bun.sh](https://bun.sh)
+Build with [Bun.sh](https://bun.sh).
+
+## Scripts
+
+__Make 'gitpush' script executable for Bun__
+
+
+```bash
+chmod +x ./scripts/gitpush.sh
+```
+
+__Push to Github with Bun__
+
+
+```bash
+bun run push
+```
+
+## Development
 
 __Install the dependencies__
 
@@ -50,24 +68,6 @@ __Build Docker Application__
 
 ```bash
 bun run docker-build
-```
-
-<br>
-
-## Development Scripts
-
-__Make 'gitpush' script executable for Bun__
-
-
-```bash
-chmod +x ./scripts/gitpush.sh
-```
-
-__Push to Github with Bun__
-
-
-```bash
-bun run push
 ```
 
 <br>
