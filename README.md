@@ -1,4 +1,4 @@
-# nuxt-shadcn-bun
+# nuxt-shadcn-docker
 
 ## Build with [Bun.sh](https://bun.sh)
 
