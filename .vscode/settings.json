@@ -7,6 +7,11 @@
   // VS Code Assistants
   "CodeGPT.apiKey": "CodeGPT Plus Beta",
 
+  // TailwindCSS
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+
   // Hide directories and files
   "files.exclude": {
     "**/node_modules": true,

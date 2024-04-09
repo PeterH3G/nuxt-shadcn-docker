@@ -15,7 +15,7 @@ module.exports = {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
-        },s
+        },
         background: "hsl(var(--background))",
         border: "hsl(var(--border))",
         card: {
