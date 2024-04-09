@@ -23,7 +23,7 @@ const triggerButton = <any>{
 
 const dropdown = <any>{
   trigger: {
-    text: "Theme"
+    text: "Theme",
   },
   label: {
     text: "Theme Options",

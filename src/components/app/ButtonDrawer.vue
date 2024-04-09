@@ -22,7 +22,7 @@ const drawer = <any>{
     text: "Menu",
   },
   description: {
-    text: "Navigations & Settings",
+    text: "Navigation & Settings",
   },
   close: {
     icon: icon.cancel,

@@ -17,10 +17,14 @@
   },
 
   // VS Code Performance
-  "breadcrumbs.enabled": false,
-  "editor.codeLens": false, // enable when working in a team
-  "search.searchOnType": false,
+  //"breadcrumbs.enabled": false,
+  //"editor.codeLens": false, // enable when working in a team
+  //"search.searchOnType": false,
   "terminal.integrated.gpuAcceleration": "on",
   "CodeGPT.Autocomplete.provider": "Ollama - codegpt/deepseek-coder-1.3b-typescript",
-  "CodeGPT.Autocomplete.enabled": true
+  "CodeGPT.Autocomplete.enabled": true,
+  "cSpell.words": [
+    "nuxt",
+    "Nuxt"
+  ]
 }

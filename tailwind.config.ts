@@ -15,7 +15,7 @@ module.exports = {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
-        },
+        },s
         background: "hsl(var(--background))",
         border: "hsl(var(--border))",
         card: {
@@ -45,8 +45,8 @@ module.exports = {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
-        'warning': 'hsl(var(--warning))',
-        'warning-foreground': 'hsl(var(--warning-foreground))',
+        warning: "hsl(var(--warning))",
+        "warning-foreground": "hsl(var(--warning-foreground))",
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",

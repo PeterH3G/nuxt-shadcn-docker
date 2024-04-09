@@ -23,7 +23,7 @@ const drawer = <any>{
     text: "Developer Menu",
   },
   description: {
-    text: "Developer navigations & settings",
+    text: "Developer navigation & settings",
   },
   close: {
     icon: icon.close,
@@ -73,9 +73,7 @@ watch(data, (newData) => {
               <p v-text="item.components" />
             </template>
           </div>
-          <div class="append">
-            append
-          </div>
+          <div class="append">append</div>
         </div>
 
         <DrawerFooter class="pt-2">

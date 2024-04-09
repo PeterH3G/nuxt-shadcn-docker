@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     layoutTransition: { name: "layout", mode: "out-in" },
     pageTransition: { name: "page", mode: "out-in" },
   },
-  
+
   devtools: { enabled: true },
 
   experimental: {
@@ -36,7 +36,7 @@ export default defineNuxtConfig({
     storesDirs: ["./src/stores/**"],
   },
   shadcn: {
-    prefix: "", // Prefix for all the imported component
+    prefix: "", // for imported component
     componentDir: "./src/components/ui", // @default "./components/ui"
   },
   postcss: {

@@ -3,7 +3,7 @@ export default defineEventHandler(() => {
     content: {
       title: "Hello from About!",
       description: "nuxt-shadcn-bun",
-      descriptionIcon: 'mdi:github',
+      descriptionIcon: "mdi:github",
     },
   };
 });
