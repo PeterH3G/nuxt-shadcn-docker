@@ -1,35 +1,38 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 
-const routes = useNuxtApp().$sortedRoutes;
-
 // ICON SETTINGS
 const icon = {
   trigger: "mdi:menu",
   title: "mdi:account",
   cancel: "mdi:cancel",
 };
-const iconOnly = useAppConfig().buttons.global.iconOnly;
 
-// DRAWER SETTINGS
-const drawer = <any>{
-  trigger: {
-    icon: icon.trigger,
-    text: "Menu",
-  },
-  title: {
-    icon: icon.title,
-    text: "Menu",
-  },
-  description: {
-    text: "Navigation & Settings",
-  },
-  close: {
-    icon: icon.cancel,
+// TAILWIND BINDINGS
+const tw = <any>{
+  triggerButton: {
+    class: "w-10 h-10 p-0 rounded-full text-2xl",
     variant: "outline",
-    text: "Cancel",
+  },
+  nuxtLinkButton: {
+    class: "rounded-none uppercase bg-muted text-muted-foreground",
   },
 };
+
+// DRAWER SETTINGS
+const drawerTrigger = {
+  icon: icon.trigger,
+  text: "Menu",
+};
+const drawerTitle = {
+  icon: icon.title,
+  text: "Menu",
+};
+const drawerDescription = {
+  text: "Navigation & Settings",
+};
+
+const routes = useNuxtApp().$sortedRoutes;
 const isOpen = ref(false);
 </script>
 
@@ -37,70 +40,45 @@ const isOpen = ref(false);
   <ClientOnly>
     <Drawer v-model:open="isOpen">
       <DrawerTrigger as-child>
-        <Button class="flex sm:hidden" variant="outline">
-          <Icon :icon="drawer.trigger.icon" />
-          <span v-if="!iconOnly" v-text="drawer.trigger.text" />
+        <Button class="flex sm:hidden" v-bind="tw.triggerButton">
+          <Icon :icon="drawerTrigger.icon" />
         </Button>
       </DrawerTrigger>
       <DrawerContent>
-        <DrawerHeader class="drawer-header">
-          <DrawerTitle class="drawer-title">
-            <Icon :icon="drawer.title.icon" />
-            <span v-text="drawer.title.text" />
+        <DrawerHeader class="flex flex-col justify-start items-center">
+          <DrawerTitle class="inline-flex justify-start items-center">
+            <Icon :icon="drawerTitle.icon" />
+            <span v-text="drawerTitle.text" />
           </DrawerTitle>
           <DrawerDescription>
-            {{ drawer.description.text }}
+            {{ drawerDescription.text }}
           </DrawerDescription>
         </DrawerHeader>
 
         <NuxtLink
           v-for="(item, i) in routes"
           :key="i"
-          class="drawer-links"
+          class="flex"
           :to="item.path"
         >
-          <Button v-if="!item.meta?.middleware" @click="isOpen = !isOpen">
+          <Button
+            v-if="!item.meta?.middleware"
+            @click="isOpen = !isOpen"
+            class="flex w-full"
+            v-bind="tw.nuxtLinkButton"
+          >
             <Icon :icon="<string>item.meta?.icon" />
             <span v-text="item.meta?.name" />
           </Button>
         </NuxtLink>
 
-        <div class="options">
-          <AppButtonDeveloper inDrawer />
-          <AppButtonTheme inDrawer />
-        </div>
-
         <DrawerFooter class="pt-2">
-          <AppFooter />
+          <div class="grid grid-cols-2 grid-flow-row gap-4 py-4 mx-4">
+            <AppButtonDeveloper inDrawer />
+            <AppButtonTheme inDrawer />
+          </div>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
   </ClientOnly>
 </template>
-
-<style scoped>
-/** Component elements */
-.drawer-header {
-  @apply flex flex-col justify-start items-center;
-}
-.drawer-title {
-  @apply inline-flex justify-start items-center;
-}
-
-/** Router Link Settings */
-.drawer-links {
-  @apply flex;
-}
-.drawer-links button {
-  @apply flex w-full rounded-none uppercase bg-muted text-muted-foreground;
-}
-.router-link-active.router-link-exact-active button {
-  @apply bg-primary text-primary-foreground;
-}
-
-/** Options settings */
-.options {
-  @apply grid grid-cols-2 grid-flow-row gap-4;
-  @apply py-4 mx-4;
-}
-</style>

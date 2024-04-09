@@ -17,9 +17,3 @@ const routes = useNuxtApp().$sortedRoutes;
     </NavigationMenuList>
   </NavigationMenu>
 </template>
-
-<style scoped>
-.router-link-active.router-link-exact-active button {
-  @apply bg-primary text-primary-foreground;
-}
-</style>

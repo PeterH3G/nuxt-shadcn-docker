@@ -31,10 +31,10 @@ const onSubmit = form.handleSubmit((values) => {
 
 <template>
   <ClientOnly>
-    <form @submit="onSubmit">
+    <form @submit="onSubmit" class="grid grid-rows-[1fr_auto] h-full gap-4">
       <FormField v-slot="{ componentField }" name="username">
         <FormItem>
-          <FormLabel class="form-label">
+          <FormLabel class="flex justify-start items-center">
             <Icon :icon="icon.username" />
             <strong v-text="`Username`" />
           </FormLabel>
@@ -52,13 +52,3 @@ const onSubmit = form.handleSubmit((values) => {
     </form>
   </ClientOnly>
 </template>
-
-<style scoped>
-form {
-  @apply grid grid-rows-[1fr_auto];
-  @apply h-full gap-4;
-}
-.form-label {
-  @apply flex justify-start items-center;
-}
-</style>

@@ -9,14 +9,19 @@ const icon = {
 };
 const iconOnly = ref(true);
 
+// TAILWIND BINDINGS
+const tw = <any>{
+  buttonTrigger: {
+    class: "",
+    variant: "outline",
+  },
+};
+
 // DIALOG SETTINGS
 const dialog = <any>{
   trigger: {
-    button: {
-      icon: icon.trigger,
-      variant: "outline",
-      text: "Login",
-    },
+    text: "Login",
+    icon: icon.trigger,
   },
   title: {
     icon: icon.trigger,
@@ -39,8 +44,8 @@ const dialog = <any>{
   <client-only>
     <Dialog>
       <DialogTrigger>
-        <Button :variant="dialog.trigger.button.variant">
-          <Icon :icon="dialog.trigger.button.icon" />
+        <Button v-bind="tw.buttonTrigger">
+          <Icon :icon="dialog.trigger.icon" />
           <span
             :class="iconOnly ? `sr-only` : ``"
             v-text="dialog.trigger.button.text"

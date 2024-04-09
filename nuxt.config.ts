@@ -16,6 +16,9 @@ export default defineNuxtConfig({
     pageTransition: { name: "page", mode: "out-in" },
   },
 
+  
+  css: ['~/assets/css/tailwind.css'],
+
   devtools: { enabled: true },
 
   experimental: {
@@ -38,12 +41,6 @@ export default defineNuxtConfig({
   shadcn: {
     prefix: "", // for imported component
     componentDir: "./src/components/ui", // @default "./components/ui"
-  },
-  postcss: {
-    plugins: {
-      autoprefixer: {},
-      tailwindcss: {},
-    },
   },
 
   srcDir: "src/",

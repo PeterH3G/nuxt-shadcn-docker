@@ -108,7 +108,7 @@
     @apply text-sm sm:text-base;
   }
 
-  pre {
-    @apply text-xs;
+  .router-link-active.router-link-exact-active button {
+    @apply bg-primary text-primary-foreground;
   }
 }

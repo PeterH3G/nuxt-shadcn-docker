@@ -6,23 +6,25 @@ export default defineAppConfig({
   },
 
   layout: {
+    // Layout Positioning
     isCentered: true, // false = maxWidth 100%
     maxWidth: "800px", // layout.isCentered = true
-  },
 
-  buttons: {
+    // Layout buttons
     global: {
-      iconOnly: true,
+      button: {
+        iconOnly: true,
+      },
     },
-    developer: {
+    buttonDeveloper: {
       show: true,
       iconOnly: false,
     },
-    drawer: {
+    buttonDrawer: {
       show: true,
       iconOnly: false,
     },
-    theme: {
+    buttonTheme: {
       show: true,
       iconOnly: false,
     },

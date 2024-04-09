@@ -13,14 +13,17 @@ const icon = {
   light: "mdi:weather-sunny",
   system: "mdi:desktop-classic",
 };
-const iconOnly = useAppConfig().buttons.global.iconOnly;
+const iconOnly = useAppConfig().layout.buttonTheme.iconOnly;
 
-// DROPDOWN SETTINGS
-const triggerButton = <any>{
-  variant: "outline",
-  text: "Theme switch",
+// TAILWIND BINDINGS
+const tw = <any>{
+  buttonTrigger: {
+    class: "",
+    variant: "outline",
+  },
 };
 
+// DROPDOWN SETTINGS
 const dropdown = <any>{
   trigger: {
     text: "Theme",
@@ -49,15 +52,21 @@ const quickSwitch = () => {
       <DropdownMenuTrigger as-child>
         <Button
           @click="useQuickSwitch ? quickSwitch() : null"
-          :variant="triggerButton.variant"
-          class="trigger-button"
+          :v-bind="tw.buttonTrigger"
+          class="inline-flex justify-start items-center"
         >
-          <Icon :icon="icon.light" class="icon-light" />
-          <Icon :icon="icon.dark" class="icon-dark" />
+          <Icon
+            :icon="icon.light"
+            class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+          />
+          <Icon
+            :icon="icon.dark"
+            class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+          />
           <span
             v-if="iconOnly ? null : dropdown.trigger.text"
             v-text="inHeader ? dropdown.trigger.text : null"
-            class="trigger-text"
+            class="flex"
           />
         </Button>
       </DropdownMenuTrigger>
@@ -75,18 +84,3 @@ const quickSwitch = () => {
     </DropdownMenu>
   </clientOnly>
 </template>
-
-<style scoped>
-.trigger-button {
-  @apply inline-flex justify-start items-center;
-}
-.trigger-text {
-  @apply flex;
-}
-.icon-dark {
-  @apply h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0;
-}
-.icon-light {
-  @apply absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100;
-}
-</style>

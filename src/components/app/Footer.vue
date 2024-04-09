@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Icon } from "@iconify/vue";
-
 const appName = useAppConfig().app.name;
 const appDisclaimer = "&reg; 2024 | All rights reserved";
 </script>

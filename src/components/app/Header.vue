@@ -1,23 +1,31 @@
 <script setup lang="ts">
 const appTitle = useAppConfig().app.name;
 const appSubtitle = useAppConfig().app.repository;
-const showButtonDeveloper = useAppConfig().buttons.developer.show;
+const showButtonDeveloper = useAppConfig().layout.buttonDeveloper.show;
+
+// TAILWIND BINDINGS
+const tw = <any>{
+  buttonLogo: {
+    class: "mr-2 w-10 h-10 p-0 rounded-full",
+    variant: "ghost",
+  },
+};
 </script>
 
 <template>
   <header>
-    <div class="container header">
-      <div class="prepend">
+    <div class="container flex justify-between items-center">
+      <div class="w-full flex justify-start items-center">
         <NuxtLink href="/">
-          <Button class="app-logo" variant="ghost" />
+          <Button id="app-logo" v-bind="tw.buttonLogo" />
         </NuxtLink>
 
-        <div class="app-titles">
+        <div class="flex flex-col">
           <strong v-text="appTitle" />
           <span v-text="appSubtitle" />
         </div>
       </div>
-      <div class="append">
+      <div class="w-full hidden sm:flex justify-end items-center">
         <AppNavigation class="mr-2" />
         <AppButtonDeveloper v-if="showButtonDeveloper" inHeader />
         <AppButtonTheme inHeader />
@@ -28,28 +36,11 @@ const showButtonDeveloper = useAppConfig().buttons.developer.show;
 </template>
 
 <style scoped>
-/* Flexed items */
-.container.header {
-  @apply flex justify-between items-center;
-}
-.container.header .prepend {
-  @apply w-full;
-  @apply flex justify-start items-center;
-}
-.container.header .append {
-  @apply w-full hidden;
-  @apply sm:flex justify-end items-center;
-}
-
 /* Header elements */
-.app-logo {
+#app-logo {
   background-image: url("https://avatars.githubusercontent.com/u/500234?v=4");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  @apply mr-2 w-10 h-10 p-0 rounded-full;
-}
-.app-titles {
-  @apply flex flex-col text-xs;
 }
 </style>
