@@ -23,6 +23,7 @@ const showFooter = ref(true);
     <div class="grid grid-cols-1 justify-center items-start">
       <h1 v-text="api?.hero.title" />
       <span v-text="api?.hero.description" />
+      <PageLoginForm />
     </div>
   </PageHero>
 </template>

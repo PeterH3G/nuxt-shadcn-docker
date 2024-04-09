@@ -18,7 +18,7 @@ export default defineAppConfig({
     },
     buttonDeveloper: {
       show: true,
-      iconOnly: false,
+      iconOnly: true,
     },
     buttonDrawer: {
       show: true,
@@ -26,7 +26,7 @@ export default defineAppConfig({
     },
     buttonTheme: {
       show: true,
-      iconOnly: false,
+      iconOnly: true,
     },
   },
 });

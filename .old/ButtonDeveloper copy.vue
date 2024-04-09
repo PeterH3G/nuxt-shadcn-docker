@@ -15,7 +15,6 @@ const icon = {
 // TAILWIND BINDINGS
 const tw = <any>{
   buttonTrigger: {
-    class: "",
     variant: "outline",
   },
 };

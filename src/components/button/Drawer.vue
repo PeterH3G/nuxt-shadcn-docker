@@ -74,8 +74,7 @@ const isOpen = ref(false);
 
         <DrawerFooter class="pt-2">
           <div class="grid grid-cols-2 grid-flow-row gap-4 py-4 mx-4">
-            <AppButtonDeveloper inDrawer />
-            <AppButtonTheme inDrawer />
+            <ButtonTheme />
           </div>
         </DrawerFooter>
       </DrawerContent>

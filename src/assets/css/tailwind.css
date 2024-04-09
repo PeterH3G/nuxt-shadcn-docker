@@ -107,8 +107,4 @@
     @apply bg-background text-foreground;
     @apply text-sm sm:text-base;
   }
-
-  .router-link-active.router-link-exact-active button {
-    @apply bg-primary text-primary-foreground;
-  }
 }

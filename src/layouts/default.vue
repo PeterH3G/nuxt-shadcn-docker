@@ -4,11 +4,11 @@ const maxWidth = useAppConfig().layout.maxWidth;
 
 <template>
   <div class="layout grid grid-rows-[auto_1fr_auto] min-h-full">
-    <AppHeader />
+    <Header />
     <main class="flex flex-col justify-center items-center">
       <slot />
     </main>
-    <AppFooter />
+    <Footer />
   </div>
 </template>
 
