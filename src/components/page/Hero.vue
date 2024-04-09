@@ -5,10 +5,6 @@ const props = defineProps<{
   api?: any;
 }>();
 
-const icon = <any>{
-  title: ""
-}
-
 const showFooter = ref(true);
 </script>
 
@@ -21,8 +17,8 @@ const showFooter = ref(true);
       </CardTitle>
 
       <CardDescription class="inline-flex justify-end items-center text-xs">
-        <span v-text="props.api?.content.description" />
-        <Icon :icon="`${props.api?.content.descriptionIcon}`" />
+        <span v-text="props.api?.description" />
+        <Icon :icon="`${props.api?.descriptionIcon}`" />
       </CardDescription>
     </CardHeader>
 

@@ -1,6 +1,6 @@
 export default defineEventHandler(() => {
   return {
-    content: {
+    hero: {
       title: "Hello from Login!",
       description: "nuxt-shadcn-bun",
       descriptionIcon: "mdi:github",

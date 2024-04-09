@@ -1,6 +1,6 @@
 export default defineEventHandler(() => {
   return {
-    content: {
+    hero: {
       title: "Hello Universe!",
       description: "nuxt-shadcn-bun",
       descriptionIcon: "mdi:github",

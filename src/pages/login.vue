@@ -19,10 +19,10 @@ const showFooter = ref(true);
 </script>
 
 <template>
-  <PageHero :api="api">
+  <PageHero :api="api?.hero">
     <div class="grid grid-cols-1 justify-center items-start">
-      <h1 v-text="api?.content.title" />
-      <span v-text="api?.content.description" />
+      <h1 v-text="api?.hero.title" />
+      <span v-text="api?.hero.description" />
     </div>
   </PageHero>
 </template>
