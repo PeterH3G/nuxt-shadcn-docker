@@ -1,34 +1,29 @@
 export default defineNuxtConfig({
   app: {
     head: {
+      viewport: 'width=device-width,initial-scale=1',
+      link: [{ rel: 'icon', href: '/favicon.ico', sizes: 'any' }],
       meta: [
-        {
-          name: "viewport",
-          content: "width=device-width, initial-scale=1",
-        },
-        {
-          charset: "utf-8",
-        },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       ],
-      noscript: [{ children: "JavaScript is required" }],
     },
-    layoutTransition: { name: "layout", mode: "out-in" },
-    pageTransition: { name: "page", mode: "out-in" },
   },
-
-  
-  css: ['~/assets/css/tailwind.css'],
 
   devtools: { enabled: true },
 
   experimental: {
     componentIslands: true,
+    payloadExtraction: false,
+    renderJsonPayloads: true,
+    typedPages: true,
   },
 
   modules: [
+    '@nuxt/eslint',
     "@nuxtjs/color-mode",
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
+    '@vueuse/nuxt',
     "shadcn-nuxt",
   ],
   colorMode: {
@@ -39,8 +34,21 @@ export default defineNuxtConfig({
     storesDirs: ["./src/stores/**"],
   },
   shadcn: {
-    prefix: "", // for imported component
-    componentDir: "./src/components/ui", // @default "./components/ui"
+    prefix: "",
+    componentDir: "./src/components/ui",
+  },
+
+  // Nitro server settings
+  nitro: {
+    esbuild: {
+      options: {
+        target: 'esnext',
+      },
+    },
+    prerender: {
+      crawlLinks: false,
+      routes: ['/'],
+    },
   },
 
   srcDir: "src/",
