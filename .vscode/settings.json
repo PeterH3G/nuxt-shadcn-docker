@@ -1,35 +1,90 @@
 {
-  // VS Code custom 
+  // Import TailwindCSS JSON
   "css.customData": [
     ".vscode/tailwind.json"
   ],
-  
-  // VS Code Assistants
-  "CodeGPT.apiKey": "CodeGPT Plus Beta",
 
-  // TailwindCSS
   "files.associations": {
-    "*.css": "tailwindcss"
+    "*.css": "postcss"
   },
 
   // Hide directories and files
   "files.exclude": {
     "**/node_modules": true,
     "**/.nuxt": true,
+    "**/.output": true,
     "**/bun.lockb": true,
     "**/dist": true,
-    "**/tsconfig.json": true,
+    "**/tsconfig.json": true
   },
 
+  // Enable the ESlint flat config support
+  "eslint.useFlatConfig": true,
+
+  // Disable the default formatter, use eslint instead
+  "prettier.enable": false,
+  "editor.formatOnSave": false,
+
+  // Auto fix
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+
+  // Silent the stylistic rules in you IDE, but still auto fix them
+  "eslint.rules.customizations": [
+    {
+      "rule": "style/*",
+      "severity": "off"
+    },
+    {
+      "rule": "*-indent",
+      "severity": "off"
+    },
+    {
+      "rule": "*-spacing",
+      "severity": "off"
+    },
+    {
+      "rule": "*-spaces",
+      "severity": "off"
+    },
+    {
+      "rule": "*-order",
+      "severity": "off"
+    },
+    {
+      "rule": "*-dangle",
+      "severity": "off"
+    },
+    {
+      "rule": "*-newline",
+      "severity": "off"
+    },
+    {
+      "rule": "*quotes",
+      "severity": "off"
+    },
+    {
+      "rule": "*semi",
+      "severity": "off"
+    }
+  ],
+
+  // Enable eslint for all supported languages
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml"
+  ],
+
   // VS Code Performance
-  //"breadcrumbs.enabled": false,
-  //"editor.codeLens": false, // enable when working in a team
-  //"search.searchOnType": false,
-  "terminal.integrated.gpuAcceleration": "on",
-  "CodeGPT.Autocomplete.provider": "Ollama - codegpt/deepseek-coder-1.3b-typescript",
-  "CodeGPT.Autocomplete.enabled": true,
-  "cSpell.words": [
-    "nuxt",
-    "Nuxt"
-  ]
+  "terminal.integrated.gpuAcceleration": "on"
 }

@@ -1,48 +1,44 @@
 <script setup lang="ts">
-const appName = useAppConfig().app.name;
-const appDescription = useAppConfig().app.description;
+import { appDescription, appName } from '~/constants'
 
 useHead({
   title: appName,
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${appName}` : `${appName}`;
+    return titleChunk ? `${appName} | ${appDescription}` : `${appName}`
   },
-  meta: [{ name: "description", content: `${appDescription}` }],
+  meta: [{ name: 'description', content: `${appName} ${appDescription}` }],
   bodyAttrs: {
-    class: `app`,
+    class: `app bg-background text-foreground`,
   },
-});
+})
 </script>
 
 <template>
+  <AppHeader />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
+  <AppFooter />
 </template>
 
 <style>
-/** Ensure full dimensions */
 html,
 body,
 #__nuxt {
-  width: 100%;
   height: 100%;
-  min-height: 100%;
-}
-
-/** Grid/Drawer positioning fix */
-body {
+  margin: 0;
+  padding: 0;
   bottom: 0;
 }
 
-/** Nuxt Router CSS */
-.layout-enter-active,
-.layout-leave-active {
-  transition: all 0.4s;
+#__nuxt {
+  @apply grid grid-rows-[auto_1fr_auto];
 }
-.layout-enter-from,
-.layout-leave-to {
-  filter: grayscale(1);
+
+header,
+aside,
+footer {
+  @apply p-2 sm:p-4;
 }
 
 .page-enter-active,
@@ -53,32 +49,5 @@ body {
 .page-leave-to {
   opacity: 0;
   filter: blur(1rem);
-}
-
-/** Dialogs CSS */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-.DialogOverlay[data-state="open"],
-.DialogContent[data-state="open"] {
-  animation: fadeIn 4000ms ease-out;
-}
-.DialogOverlay[data-state="closed"],
-.DialogContent[data-state="closed"] {
-  animation: fadeOut 4000ms ease-in;
 }
 </style>
