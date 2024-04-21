@@ -1,31 +1,26 @@
 <script setup lang="ts">
+import { Icon } from '@iconify/vue'
+
 definePageMeta({
-  name: "Dashboard",
-  icon: "mdi:view-dashboard",
-  middleware: "auth",
-  order: 1,
-  slug: "dashboard",
-});
-
-const { pending, data: api } = await useLazyAsyncData("dashboard", () =>
-  $fetch("/api/auth/dashboard")
-);
-
-watch(api, (newApi) => {});
-
-const showFooter = ref(false);
+  name: 'Dashboard',
+  icon: 'mdi:view-dashboard',
+  layout: 'user',
+  middleware: 'auth',
+})
 </script>
 
 <template>
-  <div class="container h-full sm:h-auto">
-    <PageHero :api="api?.hero">
-      <CardContent>
-        <h1 class="text-xl text-center mb-4" v-text="api?.hero.title" />
-      </CardContent>
-
-      <CardFooter class="flex justify-start items-center text-xs">
-        footer
-      </CardFooter>
-    </PageHero>
-  </div>
+  <Card class="container">
+    <CardHeader>
+      <CardTitle>
+        <Label class="inline-flex items-center font-bold">
+          <Icon :icon="`${$route.meta.icon}`" />
+          {{ $route.meta.name }}
+        </Label>
+      </CardTitle>
+    </CardHeader>
+    <CardContent>
+      users content
+    </CardContent>
+  </Card>
 </template>

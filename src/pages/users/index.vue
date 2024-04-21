@@ -10,17 +10,17 @@ definePageMeta({
 </script>
 
 <template>
-  <Card class="container page">
+  <Card class="container">
     <CardHeader>
       <CardTitle>
         <Label class="inline-flex items-center font-bold">
-          <Icon icon="mdi:api" />
-          JSONPlaceholders Users
+          <Icon :icon="`${$route.meta.icon}`" />
+          {{ $route.meta.name }}
         </Label>
       </CardTitle>
     </CardHeader>
     <CardContent>
-      <PageTableUsers />
+      users content
     </CardContent>
   </Card>
 </template>

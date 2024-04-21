@@ -20,23 +20,29 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxt/eslint',
-    "@nuxtjs/color-mode",
-    "@nuxtjs/tailwindcss",
-    "@pinia/nuxt",
+    '@nuxtjs/color-mode',
+    '@nuxtjs/tailwindcss',
+    '@pinia/nuxt',
     '@vueuse/nuxt',
-    "shadcn-nuxt",
+    'shadcn-nuxt',
   ],
   colorMode: {
-    classSuffix: "",
+    classSuffix: '',
   },
-  tailwindcss: {},
+  eslint: {
+    config: {
+      standalone: false,
+      stylistic: true, // ESLint formatting
+    },
+  },
   pinia: {
-    storesDirs: ["./src/stores/**"],
+    storesDirs: ['./src/stores/**'],
   },
   shadcn: {
-    prefix: "",
-    componentDir: "./src/components/ui",
+    prefix: '',
+    componentDir: './src/components/ui',
   },
+  tailwindcss: {},
 
   // Nitro server settings
   nitro: {
@@ -51,5 +57,10 @@ export default defineNuxtConfig({
     },
   },
 
-  srcDir: "src/",
-});
+  // Runtimeconfig settings
+  runtimeConfig: {
+    jsonplaceholderUrl: 'https://jsonplaceholder.typicode.com/',
+  },
+
+  srcDir: 'src/',
+})

@@ -1,19 +1,21 @@
 {
   "name": "nuxt-app",
-  "private": true,
   "type": "module",
+  "private": true,
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "docker": "docker-compose -f ./docker-compose.yml up",
     "docker-build": "docker-compose -f ./docker-compose.yml up --build",
     "generate": "nuxt generate",
+    "lint": "eslint .",
     "push": "./scripts/gitpush.sh",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "renode": "rm -rf node_modules && bun update && bun install"
   },
   "dependencies": {
-    "@pinia/nuxt": "latest",
+    "@tanstack/vue-table": "^8.16.0",
     "@vee-validate/zod": "^4.12.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -34,8 +36,9 @@
     "@iconify/vue": "^4.1.1",
     "@nuxt/eslint": "^0.3.6",
     "@nuxtjs/color-mode": "^3.3.3",
-    "@vueuse/nuxt": "^10.9.0",
     "@nuxtjs/tailwindcss": "^6.11.4",
+    "@pinia/nuxt": "latest",
+    "@vueuse/nuxt": "^10.9.0",
     "autoprefixer": "^10.4.19",
     "eslint": "^9.0.0",
     "eslint-plugin-format": "^0.1.0",
