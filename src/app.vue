@@ -16,7 +16,7 @@ useHead({
 <template>
   <AppHeader />
   <NuxtLayout>
-    <NuxtPage />
+    <NuxtPage :transition="{ name: 'page', mode: 'out-in' }" />
   </NuxtLayout>
   <AppFooter />
 </template>
@@ -41,10 +41,23 @@ footer {
   @apply p-2 sm:p-4;
 }
 
+/** TRANSITIONS LAYOUT */
+.layout-enter-active,
+.layout-leave-active {
+  transition: all 0.4s;
+}
+.layout-enter-from,
+.layout-leave-to {
+  opacity: 0;
+  filter: blur(1rem);
+}
+
+/** TRANSITIONS PAGES */
 .page-enter-active,
 .page-leave-active {
   transition: all 0.4s;
 }
+
 .page-enter-from,
 .page-leave-to {
   opacity: 0;

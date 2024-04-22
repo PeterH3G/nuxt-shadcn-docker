@@ -20,7 +20,6 @@ definePageMeta({
         </Label>
       </CardTitle>
     </CardHeader>
-
     <CardContent>
       <PageInputEntry />
     </CardContent>

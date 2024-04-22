@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import { appDescription, appName } from '~/constants'
+import { navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
 
 const logoSize = ref(40)
 
@@ -23,7 +24,7 @@ const navigation = [...useRouter().options.routes].filter(route =>
     <div class="append grid grid-flow-col gap-2 sm:inline-flex justify-end items-center">
       <nav>
         <NuxtLink v-for="(link, i) in navigation" :key="i" :href="link.path">
-          <Button class="inline-flex items-center mr-1" variant="ghost">
+          <Button :class="navigationMenuTriggerStyle() && `inline-flex items-center`" variant="ghost">
             <Icon :icon="`${link.meta?.icon}`" />
             {{ link.name }}
           </Button>
@@ -36,3 +37,10 @@ const navigation = [...useRouter().options.routes].filter(route =>
     </div>
   </header>
 </template>
+
+<style scoped>
+.router-link-active button,
+.router-link-exact-active button {
+  @apply bg-accent text-accent-foreground;
+}
+</style>

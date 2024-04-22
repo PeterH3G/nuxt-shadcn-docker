@@ -18,6 +18,8 @@ definePageMeta({
           {{ $route.meta.name }}
         </Label>
       </CardTitle>
+
+      <CardDescription>{{ $route.meta.description }}</CardDescription>
     </CardHeader>
     <CardContent>
       users content
