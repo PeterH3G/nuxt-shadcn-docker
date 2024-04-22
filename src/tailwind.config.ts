@@ -1,16 +1,24 @@
 import animate from 'tailwindcss-animate'
 
+const srcDir = './'
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/**/*.{vue,js,ts,jsx,tsx, html}',
+    `${srcDir}/public/index.html`,
+    `${srcDir}/components/**/*.{vue,js,ts}`,
+    `${srcDir}/layouts/**/*.vue`,
+    `${srcDir}/pages/**/*.vue`,
+    `${srcDir}/composables/**/*.{js,ts}`,
+    `${srcDir}/plugins/**/*.{js,ts}`,
+    `${srcDir}/utils/**/*.{js,ts}`,
+    `${srcDir}/App.{js,ts,vue}`,
+    `${srcDir}/app.{js,ts,vue}`,
+    `${srcDir}/Error.{js,ts,vue}`,
+    `${srcDir}/error.{js,ts,vue}`,
+    `${srcDir}/app.config.{js,ts}`,
   ],
   darkMode: ['class'],
-  layers: [
-    'base',
-    'components',
-    'utilities', // Define your custom classes here
-  ],
   plugins: [animate],
   prefix: '',
   safelist: ['dark'],
@@ -55,6 +63,9 @@ module.exports = {
         },
         'warning': 'hsl(var(--warning))',
         'warning-foreground': 'hsl(var(--warning-foreground))',
+      },
+      borderBorder: {
+        DEFAULT: 'hsl(var(--border))',
       },
       borderRadius: {
         xl: 'calc(var(--radius) + 4px)',

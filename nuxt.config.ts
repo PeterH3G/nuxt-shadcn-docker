@@ -46,7 +46,15 @@ export default defineNuxtConfig({
     prefix: '',
     componentDir: 'src/components/ui',
   },
-  tailwindcss: {},
+  tailwindcss: {
+    cssPath: ['~/assets/css/tailwind.css', { injectPosition: 'first' }],
+    configPath: 'src/tailwind.config',
+    exposeConfig: {
+      level: 2,
+    },
+    config: {},
+    viewer: true,
+  },
 
   // Nitro server settings
   nitro: {

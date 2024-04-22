@@ -3,8 +3,8 @@
   "style": "default",
   "typescript": true,
   "tailwind": {
-    "config": "tailwind.config.ts",
-    "css": "assets/css/tailwind.css",
+    "config": "src/tailwind.config.ts",
+    "css": "/src/assets/css/tailwind.css",
     "baseColor": "zinc",
     "cssVariables": false
   },
