@@ -22,7 +22,7 @@ const navigation = [...useRouter().options.routes].filter(route =>
     </div>
 
     <div class="append grid grid-flow-col gap-2 sm:inline-flex justify-end items-center">
-      <nav>
+      <nav class="hidden sm:inline-flex">
         <NuxtLink v-for="(link, i) in navigation" :key="i" :href="link.path">
           <Button :class="navigationMenuTriggerStyle() && `inline-flex items-center`" variant="ghost">
             <Icon :icon="`${link.meta?.icon}`" />

@@ -21,7 +21,7 @@ definePageMeta({
       </CardTitle>
     </CardHeader>
     <CardContent>
-      users content
+      About content
     </CardContent>
   </Card>
 </template>

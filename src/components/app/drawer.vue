@@ -37,8 +37,8 @@ const isOpen = ref(false)
         </DrawerHeader>
 
         <nav class="grid grid-flow-row">
-          <NuxtLink v-for="(link, i) in navigation" :key="i" :href="link.path">
-            <Button class="grid grid-cols-[auto_1fr] w-full h-16 rounded-none text-left text-xl" variant="default">
+          <NuxtLink v-for="(link, i) in navigation" :key="i" :href="link.path" @click="isOpen = false">
+            <Button class="grid grid-cols-[auto_1fr] w-full h-16" variant="ghost">
               <Icon :icon="`${link.meta?.icon}`" />
               {{ link.name }}
             </Button>
@@ -54,9 +54,19 @@ const isOpen = ref(false)
 </template>
 
 <style scoped>
+/** Drawer titles */
 .titles {
   line-height: 0%;
-
   @apply text-left;
+}
+
+/** Drawer links */
+a button {
+  @apply rounded-none text-left text-xl;
+}
+
+.router-link-active button,
+.router-link-exact-active button {
+  @apply bg-accent text-accent-foreground;
 }
 </style>
