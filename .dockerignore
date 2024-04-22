@@ -12,7 +12,6 @@ scripts
 .nuxtrc
 .prettierrc
 
-components.json
 docker-compose.yml
 Dockerfile
 eslint.config.mjs
