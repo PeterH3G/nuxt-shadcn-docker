@@ -3,14 +3,17 @@ import animate from 'tailwindcss-animate'
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/**/*.{js, ts, vue}',
-    './@/**/*.{js, ts, vue}',
+    './src/**/*.{vue,js,ts,jsx,tsx, html}',
   ],
-
   darkMode: ['class'],
-  safelist: ['dark'],
+  layers: [
+    'base',
+    'components',
+    'utilities', // Define your custom classes here
+  ],
+  plugins: [animate],
   prefix: '',
-
+  safelist: ['dark'],
   theme: {
     container: {
       center: true,
@@ -85,5 +88,4 @@ module.exports = {
       },
     },
   },
-  plugins: [animate],
 }
