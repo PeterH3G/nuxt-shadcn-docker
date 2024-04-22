@@ -5,7 +5,7 @@
   ],
 
   "files.associations": {
-    "*.css": "postcss"
+    "*.css": "tailwindcss"
   },
 
   // Hide directories and files
@@ -18,13 +18,7 @@
     "**/tsconfig.json": true
   },
 
-  // Enable the ESlint flat config support
-  "eslint.useFlatConfig": true,
-
-  // Disable the default formatter, use eslint instead
-  "prettier.enable": false,
   "editor.formatOnSave": false,
-
   // Auto fix
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
@@ -84,6 +78,9 @@
     "jsonc",
     "yaml"
   ],
+
+  // Disable the default formatter, use eslint instead
+  "prettier.enable": false,
 
   // VS Code Performance
   "terminal.integrated.gpuAcceleration": "on"

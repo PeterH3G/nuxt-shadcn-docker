@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     },
     layoutTransition: {
       name: 'layout',
-      mode: 'out-in', // default
+      mode: 'out-in',
     },
   },
 
@@ -44,7 +44,7 @@ export default defineNuxtConfig({
   },
   shadcn: {
     prefix: '',
-    componentDir: './src/components/ui',
+    componentDir: 'src/components/ui',
   },
   tailwindcss: {},
 

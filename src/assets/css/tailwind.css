@@ -67,7 +67,6 @@
 }
 
 @layer base {
-  /** Global CSS */
   * {
     @apply border-border;
   }

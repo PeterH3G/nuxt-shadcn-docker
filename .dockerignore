@@ -3,15 +3,19 @@ dist
 node_modules
 scripts
 
-Dockerfile*
-docker-compose*
-
 .dockerignore
 .git
 .gitignore
 .env
 .editorconfig
 .idea
+.nuxtrc
+.prettierrc
+
+components.json
+docker-compose.yml
+Dockerfile
+eslint.config.mjs
 
 coverage*
 helm-charts

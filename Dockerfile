@@ -1,33 +1,38 @@
-FROM oven/bun:latest as base
+# use the official Bun image
+# see all versions at https://hub.docker.com/r/oven/bun/tags
+FROM oven/bun:1 as base
 WORKDIR /usr/src/app
 
-FROM base AS install-dev
+# install dependencies into temp directory
+# this will cache them and speed up future builds
+FROM base AS install
 RUN mkdir -p /temp/dev
-COPY ./package.json /temp/dev/
-COPY ./bun.lockb /temp/dev/
+COPY package.json bun.lockb /temp/dev/
 RUN cd /temp/dev && bun install --frozen-lockfile
 
-FROM base AS install-prod
+# install with --production (exclude devDependencies)
 RUN mkdir -p /temp/prod
-COPY ./package.json /temp/prod/
-COPY ./bun.lockb /temp/prod/
-RUN cd /temp/prod && bun install --frozen-lockfile --generate
+COPY package.json bun.lockb /temp/prod/
+RUN cd /temp/prod && bun install --frozen-lockfile --production
 
-FROM base AS copy-dev
-COPY --from=install-dev /temp/dev/node_modules node_modules
-COPY --from=install-dev /temp/dev/package.json .
-COPY --from=install-dev /temp/dev/bun.lockb .
+# copy node_modules from temp directory
+# then copy all (non-ignored) project files into the image
+FROM base AS prerelease
+COPY --from=install /temp/dev/node_modules node_modules
 COPY . .
 
+# [optional] tests & build
 ENV NODE_ENV=production
+RUN bun test
 RUN bun run build
 
-FROM base AS copy-prod
-COPY --from=install-prod /temp/prod/node_modules node_modules
-COPY --from=copy-dev /usr/src/app/.nuxt .nuxt
-COPY --from=copy-dev /usr/src/app/package.json .
-COPY --from=copy-dev /usr/src/app/.output .output
-COPY --from=copy-dev /usr/src/app/.nuxt ..nuxt
+# copy production dependencies and source code into final image
+FROM base AS release
+COPY --from=install /temp/prod/node_modules node_modules
+COPY --from=prerelease /usr/src/app/index.ts .
+COPY --from=prerelease /usr/src/app/package.json .
 
+# run the app
 USER bun
-ENTRYPOINT [ "bun", "run", ".output/server/index.mjs" ]
+EXPOSE 3000/tcp
+ENTRYPOINT [ "bun", "run", "index.ts" ]
