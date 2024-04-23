@@ -48,12 +48,12 @@ export default defineNuxtConfig({
   },
   tailwindcss: {
     cssPath: ['~/assets/css/tailwind.css', { injectPosition: 'first' }],
-    configPath: 'src/tailwind.config',
+    configPath: 'src/tailwind.config.ts',
     exposeConfig: {
       level: 2,
     },
     config: {},
-    viewer: true,
+    viewer: false,
   },
 
   // Nitro server settings

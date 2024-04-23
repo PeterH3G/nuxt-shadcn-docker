@@ -20,7 +20,6 @@ module.exports = {
   ],
   darkMode: ['class'],
   plugins: [animate],
-  prefix: '',
   safelist: ['dark'],
   theme: {
     container: {

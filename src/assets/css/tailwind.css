@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-* {
-  @apply border-border;
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -68,5 +63,18 @@
     --border: 0 0% 12%;
     --input: 0 0% 18%;
     --ring: 0 0% 40%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground text-sm sm:text-base;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components { 
+  * {
+    @apply border-border;
   }
 }

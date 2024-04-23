@@ -3,14 +3,14 @@
   "style": "default",
   "typescript": true,
   "tailwind": {
-    "config": "src/tailwind.config.ts",
-    "css": "/src/assets/css/tailwind.css",
+    "config": "tailwind.config.ts",
+    "css": "assets/css/tailwind.css",
     "baseColor": "zinc",
     "cssVariables": false
   },
   "framework": "nuxt",
   "aliases": {
-    "components": "@@/src/components",
-    "utils": "@@/src/lib/utils"
+    "components": "@/src/components",
+    "utils": "@/src/lib/utils"
   }
 }
