@@ -1,5 +1,3 @@
-# use the official Bun image
-# see all versions at https://hub.docker.com/r/oven/bun/tags
 FROM imbios/bun-node:latest-current-slim as base
 WORKDIR /usr/src/app
 CMD [ "chmod 755 /usr/src/app" ]
