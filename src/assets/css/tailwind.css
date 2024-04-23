@@ -67,14 +67,34 @@
 }
 
 @layer base {
-  body {
-    @apply bg-background text-foreground text-sm sm:text-base;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-}
-
-@layer components { 
   * {
     @apply border-border;
+  }
+  body {
+    @apply text-sm sm:text-base;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  #__nuxt {
+   background: radial-gradient(rgba(255,255,255, .25), rgba(0,0,0,.25));
+   animation-name: nuxt;
+   animation-duration: 4s;
+   animation-iteration-count: infinite;
+   animation-direction: alternate;
+  }
+
+  @keyframes nuxt {
+    0%   {
+      @apply bg-red-500 bg-opacity-10;
+    }
+    50%   {
+      @apply bg-green-500 bg-opacity-10;
+    }
+    100% {
+      @apply bg-blue-500 bg-opacity-10;
+    }
+  }
+
+  header, footer {
+    @apply bg-background;
   }
 }
