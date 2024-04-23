@@ -64,9 +64,6 @@ module.exports = {
         'warning': 'hsl(var(--warning))',
         'warning-foreground': 'hsl(var(--warning-foreground))',
       },
-      borderBorder: {
-        DEFAULT: 'hsl(var(--border))',
-      },
       borderRadius: {
         xl: 'calc(var(--radius) + 4px)',
         lg: 'var(--radius)',

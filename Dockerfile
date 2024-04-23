@@ -1,17 +1,21 @@
 FROM oven/bun:latest
 
-# Copy the lock and package file
-COPY bun.lockb . 
-COPY package.json . 
+# Working directory (optional, but good practice)
+WORKDIR /app
+
+# Copy package files (assuming they are in the project root)
+COPY package*.json ./
 
 # Install dependencies
 RUN bun install --frozen-lockfile
 
-# Copy your source code
-COPY . . 
+# Mount your local project directory as a volume
+VOLUME ["/src"]
 
-RUN bun run generate
+# Copy initial source code (optional, for first-time build)
+# Since you're mounting a volume, this might not be necessary on subsequent builds
+COPY . .
 
 EXPOSE 3000
 
-CMD ["bun", ".output/server/index.mjs"]
+CMD ["bun", "run", "build"]
