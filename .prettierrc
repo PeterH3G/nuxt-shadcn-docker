@@ -2,5 +2,5 @@
     "plugins": [
         "prettier-plugin-tailwindcss"
     ],
-    "tailwindConfig": "./src/tailwind.config.ts"
+    "tailwindConfig": "./src/tailwind.config.js"
 }

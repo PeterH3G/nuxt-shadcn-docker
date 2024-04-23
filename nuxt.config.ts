@@ -13,6 +13,8 @@ export default defineNuxtConfig({
     },
   },
 
+  css: ['~/assets/css/tailwind.css'],
+
   devtools: { enabled: true },
 
   experimental: {
@@ -47,12 +49,12 @@ export default defineNuxtConfig({
     componentDir: 'src/components/ui',
   },
   tailwindcss: {
-    cssPath: ['~/assets/css/tailwind.css', { injectPosition: 'first' }],
-    configPath: 'src/tailwind.config.ts',
+    cssPath: ['src/assets/css/tailwind.css', { injectPosition: 'first' }],
+    config: {},
+    configPath: 'src/tailwind.config.js',
     exposeConfig: {
       level: 2,
     },
-    config: {},
     viewer: false,
   },
 

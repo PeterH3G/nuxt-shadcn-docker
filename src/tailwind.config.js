@@ -2,7 +2,6 @@ import animate from 'tailwindcss-animate'
 
 const srcDir = './'
 
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     `${srcDir}/public/index.html`,

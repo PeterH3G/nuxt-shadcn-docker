@@ -1,21 +1,31 @@
-FROM oven/bun:latest
+# use the official Bun image
+# see all versions at https://hub.docker.com/r/oven/bun/tags
+FROM imbios/bun-node:latest-current-slim as base
+WORKDIR /usr/src/app
+CMD [ "chmod 755 /usr/src/app" ]
+RUN chown -Rh $user:$user /usr/src/app
 
-# Working directory (optional, but good practice)
-WORKDIR /app
+# install dependencies into temp directory
+# this will cache them and speed up future builds
+FROM base AS install
+RUN mkdir -p /temp/dev
+COPY package.json bun.lockb /temp/dev/
+RUN cd /temp/dev && bun install --frozen-lockfile
 
-# Copy package files (assuming they are in the project root)
-COPY package*.json ./
+# install with --production (exclude devDependencies)
+RUN mkdir -p /temp/prod
+COPY package.json bun.lockb /temp/prod/
+RUN cd /temp/prod && bun install --frozen-lockfile --production
 
-# Install dependencies
-RUN bun install --frozen-lockfile
-
-# Mount your local project directory as a volume
-VOLUME ["/src"]
-
-# Copy initial source code (optional, for first-time build)
-# Since you're mounting a volume, this might not be necessary on subsequent builds
+# copy production dependencies and source code into final image
+FROM base AS release
+COPY --from=install /temp/dev/node_modules node_modules
+COPY --from=install /temp/dev/package.json .
 COPY . .
 
-EXPOSE 3000
+RUN bun run build
 
-CMD ["bun", "run", "build"]
+# run the app
+USER $user
+EXPOSE 3000/tcp
+ENTRYPOINT [ "node", ".output/server/index.mjs" ]
